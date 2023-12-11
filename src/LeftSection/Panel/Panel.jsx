@@ -3,7 +3,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
 import { MdOutlineDateRange } from "react-icons/md";
 import { generalContext } from "../../functions/GeneralContext";
-
+import { Panel2 } from "./Panel2";
 function Panel() {
   const {
     selectDayPanel,
@@ -32,7 +32,7 @@ function Panel() {
     <div>
       {!selectDayPanel ? (
         <div>
-          <div className="first-container">
+          <div className="flex flex-row items-center">
             <span>
               <BsArrowLeftCircle className="arrow-icons" />
             </span>
@@ -47,6 +47,7 @@ function Panel() {
               }}
             />
           </div>
+          <Panel2 />
         </div>
       ) : (
         <div>
