@@ -18,7 +18,7 @@ function CreateTaskPanel() {
     setTodayTask(!todayTask);
   }
   return (
-    <div className="flex flex-col w-60 h-40 relative items-center bg-withe ">
+    <div className="flex flex-col w-60 h-full relative items-center justify-center bg-withe border-2 border-black px-10 py-3">
       <AiOutlineCloseCircle
         onClick={() => {
           handlePanelVisibility();
@@ -26,6 +26,7 @@ function CreateTaskPanel() {
         className=""
       />
       <form
+        className="flex flex-col justify-center items-center"
         onSubmit={(e) => {
           e.preventDefault();
           createTodo();
@@ -39,19 +40,21 @@ function CreateTaskPanel() {
           placeholder="Nueva tarea..."
           onChange={(e) => setNewTodoText(e.target.value)}
           value={newTodoText}
-          className="w-60 h-8"
+          className=" h-8"
         />
         <label>Para hoy?</label>
         <input
           checked={todayTask}
           id="todayDateCheckbox"
           type="checkbox"
+          className="mt-1"
           onChange={() => {
             handleCheckboxDate();
           }}
         />
         {todayTask ? null : (
           <input
+            className="mt-5"
             type="date"
             onChange={(e) => setFechaIndicada(e.target.value)}
           />
@@ -59,7 +62,7 @@ function CreateTaskPanel() {
 
         <button
           type="submit"
-          className="h-12 w-60"
+          className="h-12 border-2 border-black mt-4 w-32  text-xl"
           onClick={() => {
             createTodo();
             setTimeout(handlePanelVisibility(), 100);

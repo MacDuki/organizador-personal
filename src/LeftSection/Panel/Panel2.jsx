@@ -26,7 +26,7 @@ function Panel2() {
   }, [section]);
   return (
     <>
-      <div className="inline-flex flex-col relative w-full ">
+      <div className="inline-flex flex-col justify-center items-center relative w-60 ">
         <div className="flex flex-row items-center">
           <span>
             <BsArrowLeftCircle

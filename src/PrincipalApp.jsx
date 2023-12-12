@@ -4,7 +4,7 @@ import { RightApp } from "./RightSection/App/RightApp";
 
 function PrincipalApp() {
   return (
-    <main className="w-full h-auto flex flex-row items-center justify-center gap-10">
+    <main className="w-full h-auto flex flex-row items-center justify-between px-10 py-10">
       <GeneralContext>
         <LeftApp />
         <RightApp />

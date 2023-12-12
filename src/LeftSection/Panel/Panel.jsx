@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
 import { MdOutlineDateRange } from "react-icons/md";
 import { generalContext } from "../../functions/GeneralContext";
 import { Panel2 } from "./Panel2";
@@ -29,18 +28,12 @@ function Panel() {
   }, []);
 
   return (
-    <div>
+    <div className="inline-flex flex-col justify-center items-center relative w-full border-2 border-black ">
       {!selectDayPanel ? (
-        <div>
-          <div className="flex flex-row items-center">
-            <span>
-              <BsArrowLeftCircle className="arrow-icons" />
-            </span>
+        <div className="inline-flex flex-col justify-center items-center relative w-60 ">
+          <div className="flex flex-row items-center gap-2">
             <h2 className="left-tittle">date:</h2>
             <span>Today</span>
-            <span>
-              <BsArrowRightCircle className="arrow-icons" />
-            </span>
             <MdOutlineDateRange
               onClick={() => {
                 setSelectDayPanel(!selectDayPanel);
@@ -50,7 +43,7 @@ function Panel() {
           <Panel2 />
         </div>
       ) : (
-        <div>
+        <div className="flex flex-col items-center justify-center">
           <AiOutlineCloseCircle
             onClick={() => {
               setSelectDayPanel(!selectDayPanel);
@@ -61,7 +54,7 @@ function Panel() {
         </div>
       )}
 
-      <input placeholder="Buscar ToDoS" className="text-2xl w-full" />
+      <input placeholder="Buscar ToDoS" className="text-2xl w-40" />
     </div>
   );
 }

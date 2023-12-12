@@ -6,6 +6,9 @@ export default {
       colors: {
         "bg-withe": "#eeee",
       },
+      height: {
+        600: "600px",
+      },
     },
   },
   plugins: [],
