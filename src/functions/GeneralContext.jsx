@@ -151,7 +151,7 @@ function GeneralContext({ children }) {
     };
 
     if (newTodoText === " " || newTodoText.length === 0) {
-      console.log("Nada de vacio perrita");
+      alert("Nada de vacio perrita");
     } else if (updatedTodos.every((todo) => todo.text !== newTodoText)) {
       updatedTodos.push(nuevoTodo);
       saveLocalStorage(updatedTodos);
@@ -160,7 +160,7 @@ function GeneralContext({ children }) {
       console.log(`${nuevoTodo.detailed}`);
     } else {
       setNewTodoText("");
-      console.log("Nada de repetidos perrita");
+      alert("Nada de repetidos perrita");
     }
   };
 

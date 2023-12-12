@@ -18,49 +18,73 @@ function RightApp() {
     section,
     handleTodoActions,
   } = React.useContext(generalContext);
+
+  const [allTasks, setAllTasks] = React.useState(true);
   const [calendarEvents, setCalendarEvents] = React.useState();
   const [propertyEventsValues, setPropertyEventsValues] = React.useState([]);
   const [showPanelDay, setShowPanelDay] = React.useState(false);
 
   useEffect(() => {
     let updatedCalendarList;
-    if (section === "pending") {
-      updatedCalendarList = allPendingTodos.map(({ text, date, color }) => ({
-        title: text,
-        date,
-        color,
-      }));
-    } else if (section === "completed") {
-      updatedCalendarList = allCompletedTodos.map(({ text, date, color }) => ({
+    if (allTasks) {
+      updatedCalendarList = todos.map(({ text, date, color }) => ({
         title: text,
         date,
         color,
       }));
     } else {
-      updatedCalendarList = allRemovedTodos.map(({ text, date, color }) => ({
-        title: text,
-        date,
-        color,
-      }));
+      if (section === "pending") {
+        updatedCalendarList = allPendingTodos.map(({ text, date, color }) => ({
+          title: text,
+          date,
+          color,
+        }));
+      } else if (section === "completed") {
+        updatedCalendarList = allCompletedTodos.map(
+          ({ text, date, color }) => ({
+            title: text,
+            date,
+            color,
+          })
+        );
+      } else {
+        updatedCalendarList = allRemovedTodos.map(({ text, date, color }) => ({
+          title: text,
+          date,
+          color,
+        }));
+      }
     }
+
     setCalendarEvents(updatedCalendarList);
-  }, [todos, allPendingTodos, allCompletedTodos, allRemovedTodos, section]);
+  }, [
+    todos,
+    allPendingTodos,
+    allCompletedTodos,
+    allRemovedTodos,
+    section,
+    allTasks,
+  ]);
 
   let eventsDaySelected;
   let eventsValues;
   const handleDaySelected = (arg) => {
-    if (section === "pending") {
-      eventsDaySelected = allPendingTodos.filter(
-        (todo) => todo.date === arg.dateStr
-      );
-    } else if (section === "completed") {
-      eventsDaySelected = allCompletedTodos.filter(
-        (todo) => todo.date === arg.dateStr
-      );
+    if (allTasks) {
+      eventsDaySelected = todos.filter((todo) => todo.date === arg.dateStr);
     } else {
-      eventsDaySelected = allRemovedTodos.filter(
-        (todo) => todo.date === arg.dateStr
-      );
+      if (section === "pending") {
+        eventsDaySelected = allPendingTodos.filter(
+          (todo) => todo.date === arg.dateStr
+        );
+      } else if (section === "completed") {
+        eventsDaySelected = allCompletedTodos.filter(
+          (todo) => todo.date === arg.dateStr
+        );
+      } else {
+        eventsDaySelected = allRemovedTodos.filter(
+          (todo) => todo.date === arg.dateStr
+        );
+      }
     }
 
     eventsValues = eventsDaySelected.map((event) => [
@@ -104,20 +128,30 @@ function RightApp() {
       {!formVisibility ? (
         <section className="flex flex-col items-center justify-center w-1/2 h-auto">
           {!showPanelDay ? (
-            <FullCalendar
-              headerToolbar={{
-                end: "prev,next",
-              }}
-              aspectRatio={4}
-              plugins={[dayGridPlugin, interactionPlugin]}
-              events={calendarEvents}
-              height="auto"
-              selectable
-              eventInteractive
-              eventDisplay="list-item"
-              dateClick={handleDaySelected}
-              eventClick={handleDaySelected}
-            />
+            <div className="relative flex flex-col items-center justify-center">
+              <FullCalendar
+                headerToolbar={{
+                  end: "prev,next",
+                }}
+                aspectRatio={4}
+                plugins={[dayGridPlugin, interactionPlugin]}
+                events={calendarEvents}
+                height="auto"
+                selectable
+                eventInteractive
+                eventDisplay="list-item"
+                dateClick={handleDaySelected}
+                eventClick={handleDaySelected}
+              />
+              <input
+                type="checkbox"
+                className="absolute top-3"
+                checked={allTasks}
+                onChange={() => {
+                  setAllTasks(!allTasks);
+                }}
+              />
+            </div>
           ) : (
             <div className="border-2 border-black">
               <IoIosCloseCircleOutline
