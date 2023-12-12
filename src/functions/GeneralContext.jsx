@@ -30,15 +30,18 @@ function GeneralContext({ children }) {
     if (action === "check") {
       updateTodos[todoIndex].completed = true;
       updateTodos[todoIndex].removed = false;
+      updateTodos[todoIndex].color = "green";
       updateTodos[todoIndex].section = "completed";
     } else if (action === "discarded") {
       updateTodos[todoIndex].completed = false;
       updateTodos[todoIndex].removed = false;
+      updateTodos[todoIndex].color = "yellow";
       updateTodos[todoIndex].section = "pending";
     } else if (action === "removed") {
       updateTodos[todoIndex].completed = false;
       updateTodos[todoIndex].removed = true;
       updateTodos[todoIndex].section = "removed";
+      updateTodos[todoIndex].color = "red";
     } else if (action === "eliminate") {
       const updatedTodos = updateTodos.filter((todo) => todo.text !== text);
       saveLocalStorage(updatedTodos);
@@ -140,7 +143,7 @@ function GeneralContext({ children }) {
       text: newTodoText,
       date: obtenerFechaActual(),
       allDay: true,
-      color: "red",
+      color: "yellow",
       completed: false,
       removed: false,
       detailed: detailedFlag,

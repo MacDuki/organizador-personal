@@ -102,7 +102,7 @@ function RightApp() {
   return (
     <>
       {!formVisibility ? (
-        <section className="flex flex-col items-center justify-center p-44">
+        <section className="flex flex-col items-center justify-center w-1/2 h-auto">
           {!showPanelDay ? (
             <FullCalendar
               headerToolbar={{
@@ -119,17 +119,17 @@ function RightApp() {
               eventClick={handleDaySelected}
             />
           ) : (
-            <div>
+            <div className="border-2 border-black">
               <IoIosCloseCircleOutline
                 onClick={() => {
                   setShowPanelDay(false);
                 }}
               />
               {propertyEventsValues.map((value, index) => (
-                <div key={index}>
+                <div key={index} className="border-2 border-black">
                   {value}
                   {value[4] ? (
-                    <div>
+                    <div className="flex flex-row ">
                       Completado
                       <AiOutlineReload
                         onClick={() => {
@@ -148,7 +148,7 @@ function RightApp() {
                       />
                     </div>
                   ) : value[5] ? (
-                    <div>
+                    <div className="flex flex-row ">
                       Removido
                       <BsTrash
                         onClick={() => {
@@ -167,7 +167,7 @@ function RightApp() {
                       />
                     </div>
                   ) : (
-                    <div>
+                    <div className="flex flex-row ">
                       Pendiente
                       <MdOutlineTaskAlt
                         onClick={() => {
