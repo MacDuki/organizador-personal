@@ -126,7 +126,7 @@ function RightApp() {
   return (
     <>
       {!formVisibility ? (
-        <section className="flex flex-col items-center justify-center w-1/2 h-auto">
+        <section className="flex flex-col items-center justify-center w-full py-10 md:w-1/2 md:py-0 h-auto">
           {!showPanelDay ? (
             <div className="relative flex flex-col items-center justify-center">
               <FullCalendar
