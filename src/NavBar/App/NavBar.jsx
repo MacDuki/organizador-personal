@@ -1,14 +1,14 @@
 import { CreateTaskPanel } from "../CreateTaskPanel/CreateTaskPanel"
-import { GeneralContext, generalContext } from "../../functions/GeneralContext"
-import { useContext } from "react"
+import { generalContext } from "../../functions/GeneralContext"
+import React from 'react'
+import { Panel } from "../../LeftSection/Panel/Panel"
 function NavBar() {
+    const {showPanel} = React.useContext(generalContext)
 
+   
     return (
-        <nav className={'w-full   h-20 bg-slate-600 fixed top-0  '}>
-           
-            <div className={'flex flex-row '}>
-            <CreateTaskPanel/> 
-            </div>
+        <nav className={'w-full   h-30 bg-slate-600 fixed top-0  '}>
+        {!showPanel? <CreateTaskPanel/> : <Panel/> }
         </nav> 
         
         )

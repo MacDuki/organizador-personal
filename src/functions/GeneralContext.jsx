@@ -203,7 +203,6 @@ function GeneralContext({ children }) {
   function renderContent() {
     return (
           <>
-            <Panel />
             <TaskList>
               {loading ? <p>Cargando ...</p> : null}
               {error ? <p>Hay un error fatal</p> : null}
@@ -226,6 +225,7 @@ function GeneralContext({ children }) {
       value={{
         renderContent,
         handlePanelVisibility,
+        showPanel,
         totalTodos,
         totalCompletedTodos,
         section,

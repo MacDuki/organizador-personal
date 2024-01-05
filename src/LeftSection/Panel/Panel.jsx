@@ -28,7 +28,7 @@ function Panel() {
   }, []);
 
   return (
-    <div className="inline-flex flex-col justify-center items-center relative w-full border-2 border-black ">
+    <div className="flex flex-row justify-center items-center relative w-full border-2 border-black h-full">
       {!selectDayPanel ? (
         <div className="inline-flex flex-col justify-center items-center relative w-60 ">
           <div className="flex flex-row items-center gap-2">

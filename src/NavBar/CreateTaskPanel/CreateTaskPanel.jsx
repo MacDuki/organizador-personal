@@ -18,7 +18,7 @@ function CreateTaskPanel() {
     setTodayTask(!todayTask);
   }
   return (
-    <div className="flex w-1/2 h-auto relative items-center justify-around bg-withe border-2 border-black px-10  py-10   gap-36  rounded-full">
+    <div className="flex w-1/2 h-auto relative items-center justify-around bg-withe border-2 border-black px-10  py-5   gap-36  rounded-full">
       <AiOutlineCloseCircle
         onClick={() => {
           handlePanelVisibility();
