@@ -18,7 +18,7 @@ function CreateTaskPanel() {
     setTodayTask(!todayTask);
   }
   return (
-    <div className="flex flex-col w-60 h-full relative items-center justify-center bg-withe border-2 border-black px-10 py-3">
+    <div className="flex w-1/2 h-auto relative items-center justify-around bg-withe border-2 border-black px-10  py-10   gap-36  rounded-full">
       <AiOutlineCloseCircle
         onClick={() => {
           handlePanelVisibility();
@@ -26,7 +26,7 @@ function CreateTaskPanel() {
         className=""
       />
       <form
-        className="flex flex-col justify-center items-center"
+        className="flex justify-center items-center"
         onSubmit={(e) => {
           e.preventDefault();
           createTodo();

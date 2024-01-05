@@ -1,5 +1,5 @@
 import React from "react";
-import { CreateTaskPanel } from "../LeftSection/CreateTaskPanel/CreateTaskPanel";
+import { CreateTaskPanel } from "../NavBar/CreateTaskPanel/CreateTaskPanel";
 import { Panel } from "../LeftSection/Panel/Panel";
 import { TaskItem } from "../LeftSection/TaskItem/TaskItem";
 import { TaskList } from "../LeftSection/TaskList/TaskList";
@@ -201,12 +201,7 @@ function GeneralContext({ children }) {
   }
 
   function renderContent() {
-    if (formVisibility) {
-    } else {
-      if (showPanel === true) {
-        return <CreateTaskPanel />;
-      } else {
-        return (
+    return (
           <>
             <Panel />
             <TaskList>
@@ -218,10 +213,9 @@ function GeneralContext({ children }) {
                 : null}
             </TaskList>
           </>
-        );
+        ) 
       }
-    }
-  }
+
 
   const [selectDayPanel, setSelectDayPanel] = React.useState(false);
   const [selectedDay, setSelectedDay] = React.useState();
