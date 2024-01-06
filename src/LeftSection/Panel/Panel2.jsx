@@ -26,7 +26,7 @@ function Panel2() {
   }, [section]);
   return (
     <>
-      <div className="inline-flex flex-col justify-center items-center relative w-60 ">
+      <div className="inline-flex flex-col justify-center gap-5 items-center relative w-60 md:flex-row ">
         <div className="flex flex-row items-center">
           <span>
             <BsArrowLeftCircle
@@ -34,7 +34,7 @@ function Panel2() {
               onClick={() => sectionSetFunction.left()}
             />
           </span>
-          <h2 className="left-tittle">{tittle}</h2>
+          <h2 className="select-none left-tittle">{tittle}</h2>
           <span>
             <BsArrowRightCircle
               className="arrow-icons"
@@ -43,7 +43,7 @@ function Panel2() {
           </span>
         </div>
         <div className="flex flex-row items-center justify-around">
-          <h3 className="tasks-counter">
+          <h3 className=" select-none tasks-counter">
             {totalCompletedTodos}/{totalTodos}
           </h3>
           <AiOutlinePlusCircle

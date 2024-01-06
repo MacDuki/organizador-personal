@@ -27,12 +27,12 @@ function Panel() {
   }, []);
 
   return (
-    <div className="flex flex-row justify-center items-center relative w-full border-2 border-black h-full bg-white">
+    <div className="flex flex-row justify-center items-center relative w-1/2  h-auto bg-red-600">
       {!selectDayPanel ? (
-        <div className="inline-flex flex-col justify-center items-center relative w-60 ">
+        <div className="inline-flex flex-col md:flex-row justify-center items-center relative w-auto px-10 py-2 border border-black rounded-2xl ">
           <div className="flex flex-row items-center gap-2">
-            <h2 className="left-tittle">date:</h2>
-            <span>Today</span>
+            <h2 className="select-none left-tittle">date:</h2>
+            <span className="select-none">Today</span>
             <MdOutlineDateRange
               onClick={() => {
                 setSelectDayPanel(!selectDayPanel);
@@ -53,7 +53,6 @@ function Panel() {
         </div>
       )}
 
-      <input placeholder="Buscar ToDoS" className="text-2xl w-40" />
     </div>
   );
 }

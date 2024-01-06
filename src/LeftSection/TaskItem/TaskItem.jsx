@@ -10,7 +10,7 @@ function TaskItem({
 }) {
   return (
     <li className=" list-none flex flex-col border-2 border-black w-64 ">
-      <p className="  text-2xl">{text}</p>
+      <p className="  select-none text-2xl">{text}</p>
       <TaskItemButtons
         text={text}
         section={section}

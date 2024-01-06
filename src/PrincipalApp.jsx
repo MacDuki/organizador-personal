@@ -8,7 +8,6 @@ function PrincipalApp() {
     <main className="w-full h-full flex flex-col md:flex-row items-center justify-center gap-20 px-5 py-5 ">
       <GeneralContext>
         <NavBar/>
-       
         <LeftApp />
         <RightApp />
       

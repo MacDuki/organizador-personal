@@ -203,6 +203,7 @@ function GeneralContext({ children }) {
   function renderContent() {
     return (
           <>
+          <input placeholder="Buscar ToDoS" className="text-2xl w-40" />
             <TaskList>
               {loading ? <p>Cargando ...</p> : null}
               {error ? <p>Hay un error fatal</p> : null}
