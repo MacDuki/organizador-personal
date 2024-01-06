@@ -7,7 +7,6 @@ function Panel() {
   const {
     selectDayPanel,
     setSelectDayPanel,
-
     setSelectedDay,
   } = React.useContext(generalContext);
 
@@ -28,7 +27,7 @@ function Panel() {
   }, []);
 
   return (
-    <div className="flex flex-row justify-center items-center relative w-full border-2 border-black h-full">
+    <div className="flex flex-row justify-center items-center relative w-full border-2 border-black h-full bg-white">
       {!selectDayPanel ? (
         <div className="inline-flex flex-col justify-center items-center relative w-60 ">
           <div className="flex flex-row items-center gap-2">

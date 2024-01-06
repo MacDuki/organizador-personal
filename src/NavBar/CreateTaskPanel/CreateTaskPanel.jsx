@@ -18,7 +18,7 @@ function CreateTaskPanel() {
     setTodayTask(!todayTask);
   }
   return (
-    <div className="flex w-1/2 h-auto relative items-center justify-around bg-withe border-2 border-black px-10  py-5   gap-36  rounded-full">
+    <div className="flex w-1/2 h-auto relative items-center justify-around bg-withe border-2 border-black px-10  py-5   gap-36  rounded-full bg-white">
       <AiOutlineCloseCircle
         onClick={() => {
           handlePanelVisibility();
@@ -30,8 +30,10 @@ function CreateTaskPanel() {
         onSubmit={(e) => {
           e.preventDefault();
           createTodo();
-          setTimeout(handlePanelVisibility(), 100);
-          setSection("pending");
+          setTimeout(() => {
+            handlePanelVisibility();
+            setSection("pending");
+          }, 100);
         }}
       >
         <input
@@ -63,11 +65,6 @@ function CreateTaskPanel() {
         <button
           type="submit"
           className="h-12 border-2 border-black mt-4 w-32  text-xl"
-          onClick={() => {
-            createTodo();
-            setTimeout(handlePanelVisibility(), 100);
-            setSection("pending");
-          }}
         >
           Agregar
         </button>

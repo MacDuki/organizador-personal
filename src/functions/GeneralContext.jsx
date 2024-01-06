@@ -190,7 +190,7 @@ function GeneralContext({ children }) {
 
   ///
 
-  const [showPanel, setShowPanel] = React.useState(false);
+  const [showPanel, setShowPanel] = React.useState(true);
   const handlePanelVisibility = () => {
     setShowPanel((state) => !state);
   };
