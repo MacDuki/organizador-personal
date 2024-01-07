@@ -9,6 +9,8 @@ import { MdOutlineTaskAlt } from "react-icons/md";
 import { generalContext } from "../../functions/GeneralContext";
 
 function RightApp() {
+  
+  
   const {
     formVisibility,
     todos,
@@ -126,7 +128,7 @@ function RightApp() {
   return (
     <>
       {!formVisibility ? (
-        <section className="flex flex-col items-center justify-center w-full mt-36 py-10 md:w-1/2 md:py-0 h-auto">
+        <section className="flex flex-col items-center justify-center w-full mt-20 py-10 md:w-1/2 md:py-0 h-auto">
           {!showPanelDay ? (
             <div className="relative flex flex-col items-center justify-center">
               <FullCalendar
@@ -143,6 +145,7 @@ function RightApp() {
                 dateClick={handleDaySelected}
                 eventClick={handleDaySelected}
               />
+              <span className="absolute top-1.5  left-48"> Todas las tareas ?</span>
               <input
                 type="checkbox"
                 className="absolute top-3"

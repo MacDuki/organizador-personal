@@ -3,6 +3,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import { MdOutlineDateRange } from "react-icons/md";
 import { generalContext } from "../../functions/GeneralContext";
 import { Panel2 } from "./Panel2";
+import {motion, AnimatePresence} from 'framer-motion'
 function Panel() {
   const {
     selectDayPanel,
@@ -27,7 +28,9 @@ function Panel() {
   }, []);
 
   return (
-    <div className="flex flex-row justify-center items-center relative w-1/2  h-auto bg-red-600">
+    
+    <div 
+    className="flex flex-row justify-center items-center relative w-full  h-auto ">
       {!selectDayPanel ? (
         <div className="inline-flex flex-col md:flex-row justify-center items-center relative w-auto px-10 py-2 border border-black rounded-2xl ">
           <div className="flex flex-row items-center gap-2">
@@ -54,6 +57,7 @@ function Panel() {
       )}
 
     </div>
+
   );
 }
 

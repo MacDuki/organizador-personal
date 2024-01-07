@@ -1,6 +1,6 @@
 import React from "react";
 import { CreateTaskPanel } from "../NavBar/CreateTaskPanel/CreateTaskPanel";
-import { Panel } from "../LeftSection/Panel/Panel";
+import { Panel } from "../NavBar/Panel/Panel";
 import { TaskItem } from "../LeftSection/TaskItem/TaskItem";
 import { TaskList } from "../LeftSection/TaskList/TaskList";
 import { useLocalStorage } from "../functions/useLocalStorage";

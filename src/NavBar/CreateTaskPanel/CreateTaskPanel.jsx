@@ -1,6 +1,8 @@
 import React from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { generalContext } from "../../functions/GeneralContext";
+import {  motion } from "framer-motion";
+import './input.css'
 
 function CreateTaskPanel() {
   const {
@@ -18,15 +20,10 @@ function CreateTaskPanel() {
     setTodayTask(!todayTask);
   }
   return (
-    <div className="flex w-1/2 h-auto relative items-center justify-around bg-withe border-2 border-black px-10  py-5   gap-36  rounded-full">
-      <AiOutlineCloseCircle
-        onClick={() => {
-          handlePanelVisibility();
-        }}
-        className=""
-      />
+     
       <form
-        className="flex justify-center items-center"
+      
+        className="flex justify-around relative items-center min-w-40 w-auto h-auto border border-black py-4 px-10 gap-10 rounded-full "
         onSubmit={(e) => {
           e.preventDefault();
           createTodo();
@@ -36,40 +33,70 @@ function CreateTaskPanel() {
           }, 100);
         }}
       >
+    
+      
         <input
           required
           type="text"
           placeholder="Nueva tarea..."
           onChange={(e) => setNewTodoText(e.target.value)}
           value={newTodoText}
-          className=" h-8"
+          className="bg-transparent border-b border-gray-500 focus:outline-none focus:border-gray-300 focus:ring-0 h-8 w-44 "
         />
-        <label>Para hoy?</label>
-        <input
-          checked={todayTask}
-          id="todayDateCheckbox"
-          type="checkbox"
-          className="mt-1"
-          onChange={() => {
-            handleCheckboxDate();
-          }}
-        />
-        {todayTask ? null : (
+      
+       
+
+
+        <div 
+      
+        className="customCheckBoxHolder flex items-center justify-center gap-5">
+          <input type="checkbox" checked={todayTask} id="cCB1" onChange={() => {
+                      handleCheckboxDate();
+                    }} className="customCheckBoxInput"/>
+          <label for="cCB1" class="customCheckBoxWrapper">
+              <div className="customCheckBox">
+                  <div className="inner">Para hoy</div>
+              </div>
+          </label>
+          {todayTask ? null : (
+          <motion.div
+          initial={{ x: -50 }}
+        animate={{ x:  0}}
+        transition={{ ease: "easeOut", duration: 0.3 }}
+        className=""
+          >
           <input
-            className="mt-5"
+            className=""
             type="date"
+            checked
             onChange={(e) => setFechaIndicada(e.target.value)}
           />
+          </motion.div>
         )}
+</div>
+        
+        
+        
 
         <button
           type="submit"
-          className="h-12 border-2 border-black mt-4 w-32  text-xl"
+          className=' w-26 px-6 py-2 h-auto border border-black select-none rounded-md'
         >
           Agregar
         </button>
+
+
+
+        <div className="relative flex items-center justify-center w-auto h-auto z-50 ml-10">
+         <AiOutlineCloseCircle
+        onClick={() => {
+          handlePanelVisibility();
+        }}
+        className="w-6 h-auto cursor-pointer"
+      />
+      </div>
       </form>
-    </div>
+    
   );
 }
 

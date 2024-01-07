@@ -5,7 +5,7 @@ import {NavBar} from './NavBar/App/NavBar.jsx'
 
 function PrincipalApp() {
   return (
-    <main className="w-full h-full flex flex-col md:flex-row items-center justify-center gap-20 px-5 py-5 ">
+    <main className="w-full h-full flex flex-col md:flex-row items-start justify-center gap-20 px-5 py-5 ">
       <GeneralContext>
         <NavBar/>
         <LeftApp />
