@@ -20,7 +20,11 @@ function CreateTaskPanel() {
     setTodayTask(!todayTask);
   }
   return (
-     
+     <motion.div 
+     initial={{ y: -50 }}
+    animate={{ y: 0 }}
+    transition={{ ease: "easeOut", duration: 0.3 }}
+     className="w-full flex items-center justify-center" >
       <form
       
         className="flex justify-around relative items-center min-w-40 w-auto h-auto border border-black py-4 px-10 gap-10 rounded-full "
@@ -96,7 +100,7 @@ function CreateTaskPanel() {
       />
       </div>
       </form>
-    
+      </motion.div>
   );
 }
 

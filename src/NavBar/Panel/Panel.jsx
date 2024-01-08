@@ -29,14 +29,19 @@ function Panel() {
 
   return (
     
-    <div 
+    <motion.div
+    initial={{ y: -50 }}
+    animate={{ y: 0 }}
+   
+    transition={{ ease: "easeOut", duration: 0.3 }}
     className="flex flex-row justify-center items-center relative w-full  h-auto ">
       {!selectDayPanel ? (
-        <div className="inline-flex flex-col md:flex-row justify-center items-center relative w-auto px-10 py-2 border border-black rounded-2xl ">
+        <div className="inline-flex flex-col md:flex-row justify-center items-center relative w-auto mr-2 px-10 py-2 border border-black rounded-2xl ">
           <div className="flex flex-row items-center gap-2">
             <h2 className="select-none left-tittle">date:</h2>
             <span className="select-none">Today</span>
             <MdOutlineDateRange
+            className="select-none cursor-pointer"
               onClick={() => {
                 setSelectDayPanel(!selectDayPanel);
               }}
@@ -45,18 +50,23 @@ function Panel() {
           <Panel2 />
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center">
+        <motion.div 
+        initial={{ scale: 0 }}
+    animate={{ scale: 1 }}
+   
+    transition={{ ease: "easeOut", duration: 0.3 }}
+        className="flex items-center justify-center select-none">
           <AiOutlineCloseCircle
             onClick={() => {
               setSelectDayPanel(!selectDayPanel);
             }}
-            className="plus-icon"
+            className="plus-icon mr-5 cursor-pointer"
           />
-          <input type="date" onChange={(e) => handleDaySelected(e)} />
-        </div>
+          <input type="date" className="select-none cursor-pointer" onChange={(e) => handleDaySelected(e)} />
+        </motion.div>
       )}
 
-    </div>
+    </motion.div>
 
   );
 }

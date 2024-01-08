@@ -26,31 +26,31 @@ function Panel2() {
   }, [section]);
   return (
     <>
-      <div className="inline-flex flex-col justify-center gap-5 items-center relative w-60 md:flex-row ">
-        <div className="flex flex-row items-center">
+      <div className="inline-flex flex-col justify-center gap-5 items-center relative w-auto md:flex-row ">
+        <div className="flex flex-row items-center ">
           <span>
             <BsArrowLeftCircle
-              className="arrow-icons"
+              className="arrow-icons cursor-pointer"
               onClick={() => sectionSetFunction.left()}
             />
           </span>
-          <h2 className="select-none left-tittle">{tittle}</h2>
+          <h2 className="select-none left-tittle mx-2">{tittle}</h2>
           <span>
             <BsArrowRightCircle
-              className="arrow-icons"
+              className="arrow-icons cursor-pointer"
               onClick={() => sectionSetFunction.right()}
             />
           </span>
         </div>
         <div className="flex flex-row items-center justify-around">
-          <h3 className=" select-none tasks-counter">
+          <p className=" select-none tasks-counter">
             {totalCompletedTodos}/{totalTodos}
-          </h3>
+          </p>
           <AiOutlinePlusCircle
             onClick={() => {
               handlePanelVisibility();
             }}
-            className="plus-icon"
+            className="plus-icon cursor-pointer"
           />
         </div>
       </div>
