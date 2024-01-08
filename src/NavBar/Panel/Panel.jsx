@@ -3,6 +3,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import { MdOutlineDateRange } from "react-icons/md";
 import { generalContext } from "../../functions/GeneralContext";
 import { Panel2 } from "./Panel2";
+import { stateOfTasksTittle } from "../../functions/stateOfTasksTittle";
 import {motion, AnimatePresence} from 'framer-motion'
 function Panel() {
   const {
@@ -34,12 +35,12 @@ function Panel() {
     animate={{ y: 0 }}
    
     transition={{ ease: "easeOut", duration: 0.3 }}
-    className="flex flex-row justify-center items-center relative w-full  h-auto ">
+    className="flex flex-row justify-center items-center relative w-full h-auto ">
       {!selectDayPanel ? (
         <div className="inline-flex flex-col md:flex-row justify-center items-center relative w-auto mr-2 px-10 py-2 border border-black rounded-2xl ">
-          <div className="flex flex-row items-center gap-2">
+          <div className="flex flex-row items-center gap-1 mr-4">
             <h2 className="select-none left-tittle">date:</h2>
-            <span className="select-none">Today</span>
+            <span className="select-none mr-1">Today</span>
             <MdOutlineDateRange
             className="select-none cursor-pointer"
               onClick={() => {
