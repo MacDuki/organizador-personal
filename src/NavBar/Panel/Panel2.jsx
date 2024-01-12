@@ -34,11 +34,13 @@ function Panel2() {
               onClick={() => sectionSetFunction.left()}
             />
           </span>
+
+        
           <motion.h2 
-           initial={{ x: -50 }}
+           key={forceUpdate}
+           initial={{ x: -100 }}
            animate={{ x: 0 }}
-          
-           transition={{ ease: "easeOut", duration: 0.3 }}
+       
           className="select-none left-tittle mx-2">{tittle}</motion.h2>
           <span>
             <BsArrowRightCircle
