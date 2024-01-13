@@ -193,11 +193,6 @@ function GeneralContext({ children }) {
 		setShowPanel((state) => !state);
 	};
 
-	const [formVisibility, setFormVisibility] = React.useState(false);
-	function handleFormVisibility() {
-		setFormVisibility((state) => !state);
-	}
-
 	function renderContent() {
 		return (
 			<>
@@ -237,8 +232,6 @@ function GeneralContext({ children }) {
 				setSection,
 				setNewTodoTextArea,
 				newTodoTextArea,
-				handleFormVisibility,
-				formVisibility,
 				showTextArea,
 				setShowTextArea,
 				handleTextAreaChange,

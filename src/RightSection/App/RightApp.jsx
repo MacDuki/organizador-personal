@@ -10,7 +10,6 @@ import { generalContext } from "../../functions/GeneralContext";
 
 function RightApp() {
 	const {
-		formVisibility,
 		todos,
 		allPendingTodos,
 		allCompletedTodos,
@@ -124,108 +123,101 @@ function RightApp() {
 	]);
 
 	return (
-		<>
-			{!formVisibility ? (
-				<section className='flex flex-col items-center justify-center w-full mt-20 py-10 md:w-1/2 md:py-0 h-auto'>
-					{!showPanelDay ? (
-						<div className='relative flex flex-col items-center justify-center'>
-							<FullCalendar
-								headerToolbar={{
-									end: "prev,next",
-								}}
-								aspectRatio={4}
-								plugins={[dayGridPlugin, interactionPlugin]}
-								events={calendarEvents}
-								height='auto'
-								selectable
-								eventInteractive
-								eventDisplay='list-item'
-								dateClick={handleDaySelected}
-								eventClick={handleDaySelected}
-							/>
-							<span className='absolute top-1.5  left-48'>
-								{" "}
-								Todas las tareas ?
-							</span>
-							<input
-								type='checkbox'
-								className='absolute top-3'
-								checked={allTasks}
-								onChange={() => {
-									setAllTasks(!allTasks);
-								}}
-							/>
-						</div>
-					) : (
-						<div className='border-2 border-black'>
-							<IoIosCloseCircleOutline
-								onClick={() => {
-									setShowPanelDay(false);
-								}}
-							/>
-							{propertyEventsValues.map((value, index) => (
-								<div key={index} className='border-2 border-black'>
-									{value}
-									{value[4] ? (
-										<div className='flex flex-row '>
-											Completado
-											<AiOutlineReload
-												onClick={() => {
-													handleTodoActions(value[0], "discarded");
-												}}
-											/>
-											<AiOutlineCloseCircle
-												onClick={() => {
-													handleTodoActions(value[0], "removed");
-												}}
-											/>
-											<BsTrash
-												onClick={() => {
-													handleTodoActions(value[0], "eliminate");
-												}}
-											/>
-										</div>
-									) : value[5] ? (
-										<div className='flex flex-row '>
-											Removido
-											<BsTrash
-												onClick={() => {
-													handleTodoActions(value[0], "eliminate");
-												}}
-											/>
-											<MdOutlineTaskAlt
-												onClick={() => {
-													handleTodoActions(value[0], "check");
-												}}
-											/>
-											<AiOutlineReload
-												onClick={() => {
-													handleTodoActions(value[0], "discarded");
-												}}
-											/>
-										</div>
-									) : (
-										<div className='flex flex-row '>
-											Pendiente
-											<MdOutlineTaskAlt
-												onClick={() => {
-													handleTodoActions(value[0], "check");
-												}}
-											/>
-											<AiOutlineCloseCircle
-												onClick={() => {
-													handleTodoActions(value[0], "removed");
-												}}
-											/>
-										</div>
-									)}
+		<section className='flex flex-col items-center justify-center w-full mt-20 py-10 md:w-1/2 md:py-0 h-auto'>
+			{!showPanelDay ? (
+				<div className='relative flex flex-col items-center justify-center'>
+					<FullCalendar
+						headerToolbar={{
+							end: "prev,next",
+						}}
+						aspectRatio={4}
+						plugins={[dayGridPlugin, interactionPlugin]}
+						events={calendarEvents}
+						height='auto'
+						selectable
+						eventInteractive
+						eventDisplay='list-item'
+						dateClick={handleDaySelected}
+						eventClick={handleDaySelected}
+					/>
+					<span className='absolute top-1.5  left-48'> Todas las tareas ?</span>
+					<input
+						type='checkbox'
+						className='absolute top-3'
+						checked={allTasks}
+						onChange={() => {
+							setAllTasks(!allTasks);
+						}}
+					/>
+				</div>
+			) : (
+				<div className='border-2 border-black'>
+					<IoIosCloseCircleOutline
+						onClick={() => {
+							setShowPanelDay(false);
+						}}
+					/>
+					{propertyEventsValues.map((value, index) => (
+						<div key={index} className='border-2 border-black'>
+							{value}
+							{value[4] ? (
+								<div className='flex flex-row '>
+									Completado
+									<AiOutlineReload
+										onClick={() => {
+											handleTodoActions(value[0], "discarded");
+										}}
+									/>
+									<AiOutlineCloseCircle
+										onClick={() => {
+											handleTodoActions(value[0], "removed");
+										}}
+									/>
+									<BsTrash
+										onClick={() => {
+											handleTodoActions(value[0], "eliminate");
+										}}
+									/>
 								</div>
-							))}
+							) : value[5] ? (
+								<div className='flex flex-row '>
+									Removido
+									<BsTrash
+										onClick={() => {
+											handleTodoActions(value[0], "eliminate");
+										}}
+									/>
+									<MdOutlineTaskAlt
+										onClick={() => {
+											handleTodoActions(value[0], "check");
+										}}
+									/>
+									<AiOutlineReload
+										onClick={() => {
+											handleTodoActions(value[0], "discarded");
+										}}
+									/>
+								</div>
+							) : (
+								<div className='flex flex-row '>
+									Pendiente
+									<MdOutlineTaskAlt
+										onClick={() => {
+											handleTodoActions(value[0], "check");
+										}}
+									/>
+									<AiOutlineCloseCircle
+										onClick={() => {
+											handleTodoActions(value[0], "removed");
+										}}
+									/>
+								</div>
+							)}
 						</div>
-					)}
-				</section>
-			) : null}
-		</>
+					))}
+				</div>
+			)}
+		</section>
 	);
 }
 
