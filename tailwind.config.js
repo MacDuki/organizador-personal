@@ -10,7 +10,8 @@ export default {
 				beige: "#EFECCA",
 				wange: "#333333",
 				greenPastel: "#52976f",
-				redPastel: "#9a031e",
+				redPastel: "#FC5130",
+				yellowPastel: "#F9C80E",
 			},
 			height: {
 				600: "600px",
