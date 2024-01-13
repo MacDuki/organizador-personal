@@ -5,7 +5,7 @@ export default {
 		extend: {
 			colors: {
 				"bg-withe": "#eeee",
-				"neavy-b": "#FF934F",
+				"neavy-b": "#f7a072",
 				cambridge: "#A9CBB7",
 				beige: "#EFECCA",
 				wange: "#333333",

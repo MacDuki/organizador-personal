@@ -1,0 +1,13 @@
+::-webkit-scrollbar {
+	width: 0.5rem;
+}
+
+/* Fondo de la barra de desplazamiento (para WebKit/Blink) */
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+/* Color del pulgar de la barra de desplazamiento (para WebKit/Blink) */
+::-webkit-scrollbar-thumb {
+	background: #000000;
+}
