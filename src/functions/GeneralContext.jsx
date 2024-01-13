@@ -141,7 +141,7 @@ function GeneralContext({ children }) {
 			text: newTodoText,
 			date: obtenerFechaActual(),
 			allDay: true,
-			color: "yellow",
+			color: "#F9C80E",
 			completed: false,
 			removed: false,
 			detailed: detailedFlag,

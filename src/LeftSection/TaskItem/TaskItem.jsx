@@ -25,12 +25,12 @@ function TaskItem({
 			setBackGroundColorVariable("bg-beige");
 		}
 		setForceUpdateLi(forceUpdateLi + 1);
-	}, [allCompletedTodos, allRemovedTodos, section]);
+	}, [section]);
 
 	return (
 		<motion.li
-			initial={{ y: -50 }}
-			animate={{ y: 0 }}
+			initial={{ x: -50 }}
+			animate={{ x: 0 }}
 			key={forceUpdateLi}
 			transition={{ ease: "easeOut", duration: 0.3 }}
 			className={`list-none flex flex-col px-2 border-2 border-black ${backGroundColorVariable} w-64`}>
