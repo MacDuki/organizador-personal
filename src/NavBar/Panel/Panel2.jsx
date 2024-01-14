@@ -3,14 +3,10 @@ import React, { useEffect } from "react";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
 import { generalContext } from "../../functions/GeneralContext";
+import { TasksCounter } from "./TasksCounter";
 function Panel2() {
-	const {
-		handlePanelVisibility,
-		totalTodos,
-		totalCompletedTodos,
-		section,
-		sectionSetFunction,
-	} = React.useContext(generalContext);
+	const { handlePanelVisibility, section, sectionSetFunction } =
+		React.useContext(generalContext);
 
 	const [forceUpdate, setForceUpdate] = React.useState(0);
 	const [tittle, setTittle] = React.useState("Tasks Pending");
@@ -51,9 +47,7 @@ function Panel2() {
 					</span>
 				</div>
 				<div className='flex flex-row items-center justify-around gap-1'>
-					<p className=' select-none tasks-counter'>
-						{totalCompletedTodos}/{totalTodos}
-					</p>
+					<TasksCounter />
 					<AiOutlinePlusCircle
 						onClick={() => {
 							handlePanelVisibility();

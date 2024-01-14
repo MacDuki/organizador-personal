@@ -5,11 +5,13 @@ import { GeneralContext } from "./functions/GeneralContext.jsx";
 
 function PrincipalApp() {
 	return (
-		<main className='w-full min-h-screen flex flex-col md:flex-row items-start justify-center gap-20 px-5 py-5 bg-beige '>
+		<main className='w-full min-h-screen flex flex-col justify-center  bg-beige '>
 			<GeneralContext>
 				<NavBar />
-				<LeftApp />
-				<RightApp />
+				<section className='w-full h-auto flex justify-center items-start gap-20 px-5 py-5'>
+					<LeftApp />
+					<RightApp />
+				</section>
 			</GeneralContext>
 		</main>
 	);

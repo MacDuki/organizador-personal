@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { TaskItem } from "../LeftSection/TaskItem/TaskItem";
 import { TaskList } from "../LeftSection/TaskList/TaskList";
 import { useLocalStorage } from "../functions/useLocalStorage";
@@ -11,8 +11,7 @@ function GeneralContext({ children }) {
 		error,
 		loading,
 	} = useLocalStorage("TODOS-V1", []);
-	const totalTodos = todos.filter((todo) => !todo.removed).length;
-	const totalCompletedTodos = todos.filter((todo) => !!todo.completed).length;
+
 	const allPendingTodos = todos.filter(
 		(todo) => !todo.completed && !todo.removed
 	);
@@ -212,6 +211,17 @@ function GeneralContext({ children }) {
 		);
 	}
 
+	useEffect(() => {
+		const fecha = new Date();
+
+		const año = fecha.getFullYear();
+		const mes = String(fecha.getMonth() + 1).padStart(2, "0");
+		const dia = String(fecha.getDate()).padStart(2, "0");
+
+		const fechaFormateada = `${año}-${mes}-${dia}`;
+		setSelectedDay(fechaFormateada);
+	}, []);
+
 	const [selectDayPanel, setSelectDayPanel] = React.useState(false);
 	const [selectedDay, setSelectedDay] = React.useState();
 	const [eventsDayLeft, setEventsDayLeft] = React.useState();
@@ -222,8 +232,6 @@ function GeneralContext({ children }) {
 				renderContent,
 				handlePanelVisibility,
 				showPanel,
-				totalTodos,
-				totalCompletedTodos,
 				section,
 				sectionSetFunction,
 				newTodoText,
