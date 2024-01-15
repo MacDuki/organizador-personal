@@ -14,11 +14,11 @@ function Panel() {
 
 	return (
 		<motion.div
-			initial={{ y: -50 }}
-			animate={{ y: 0 }}
+			initial={{ scale: 0 }}
+			animate={{ scale: 1 }}
 			transition={{ ease: "easeOut", duration: 0.3 }}
 			layout
-			className='flex flex-row justify-center items-center relative h-auto '>
+			className='flex flex-row justify-center items-center relative h-20 '>
 			<div className='inline-flex flex-col md:flex-row justify-center items-center relative w-auto mr-2 px-10 py-2 border border-black rounded-2xl bg-wange text-slate-50 '>
 				<div className='flex flex-row items-center gap-1 mr-4'>
 					<h2 className='select-none left-tittle '>Date:</h2>

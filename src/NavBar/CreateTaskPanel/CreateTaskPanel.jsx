@@ -21,10 +21,10 @@ function CreateTaskPanel() {
 	}
 	return (
 		<motion.div
-			initial={{ y: -50 }}
-			animate={{ y: 0 }}
+			initial={{ scale: 0 }}
+			animate={{ scale: 1 }}
 			transition={{ ease: "easeOut", duration: 0.35 }}
-			className='flex items-center justify-center '>
+			className='flex items-center justify-center h-20 '>
 			<motion.form
 				layout
 				className='flex justify-around relative items-center min-w-40 h-auto border-2 bg-neavy-b border-black py-4 px-10 gap-10 rounded-full '
