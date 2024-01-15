@@ -57,7 +57,7 @@ function CreateTaskPanel() {
 					/>
 					<label for='cCB1' class='customCheckBoxWrapper'>
 						<div className='customCheckBox'>
-							<div className='inner'>Para hoy</div>
+							<div className='inner'>for today</div>
 						</div>
 					</label>
 					{todayTask ? null : (

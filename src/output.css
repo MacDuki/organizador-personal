@@ -576,6 +576,14 @@ video {
   top: 0.75rem;
 }
 
+.top-0 {
+  top: 0px;
+}
+
+.left-0 {
+  left: 0px;
+}
+
 .z-50 {
   z-index: 50;
 }
@@ -681,8 +689,20 @@ video {
   width: 100vw;
 }
 
+.w-16 {
+  width: 4rem;
+}
+
+.w-36 {
+  width: 9rem;
+}
+
 .min-w-40 {
   min-width: 10rem;
+}
+
+.min-w-48 {
+  min-width: 12rem;
 }
 
 .cursor-pointer {
@@ -886,6 +906,10 @@ video {
   padding-right: 2rem;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -894,6 +918,11 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-9xl {
+  font-size: 8rem;
+  line-height: 1;
 }
 
 .text-slate-50 {

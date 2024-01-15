@@ -225,7 +225,7 @@ function GeneralContext({ children }) {
 	const [selectDayPanel, setSelectDayPanel] = React.useState(false);
 	const [selectedDay, setSelectedDay] = React.useState();
 	const [eventsDayLeft, setEventsDayLeft] = React.useState();
-
+	const [showPanelDay, setShowPanelDay] = React.useState(false);
 	return (
 		<generalContext.Provider
 			value={{
@@ -259,6 +259,8 @@ function GeneralContext({ children }) {
 				setSelectDayPanel,
 				selectedDay,
 				setSelectedDay,
+				showPanelDay,
+				setShowPanelDay,
 			}}>
 			{children}
 		</generalContext.Provider>
