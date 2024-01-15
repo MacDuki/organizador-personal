@@ -13,10 +13,46 @@ function Calendar(props) {
 		section,
 		showPanelDay,
 		setShowPanelDay,
+		setDayPanelSelected,
 	} = React.useContext(generalContext);
 
 	const [allTasks, setAllTasks] = React.useState(true);
 	const [calendarEvents, setCalendarEvents] = React.useState();
+
+	let eventsValues;
+	let eventsDaySelected;
+	const handleDaySelected = (arg) => {
+		setDayPanelSelected(arg.dateStr);
+		if (allTasks) {
+			eventsDaySelected = todos.filter((todo) => todo.date === arg.dateStr);
+		} else {
+			if (section === "pending") {
+				eventsDaySelected = allPendingTodos.filter(
+					(todo) => todo.date === arg.dateStr
+				);
+			} else if (section === "completed") {
+				eventsDaySelected = allCompletedTodos.filter(
+					(todo) => todo.date === arg.dateStr
+				);
+			} else {
+				eventsDaySelected = allRemovedTodos.filter(
+					(todo) => todo.date === arg.dateStr
+				);
+			}
+		}
+
+		eventsValues = eventsDaySelected.map((event) => [
+			event.text,
+			event.date,
+			event.color,
+			event.detailed,
+			event.completed,
+			event.removed,
+		]);
+		props.setPropertyEventsValues(eventsValues);
+
+		setShowPanelDay(!showPanelDay);
+	};
 	useEffect(() => {
 		let updatedCalendarList;
 		if (allTasks) {
@@ -59,40 +95,6 @@ function Calendar(props) {
 		allTasks,
 	]);
 
-	let eventsDaySelected;
-	let eventsValues;
-	const handleDaySelected = (arg) => {
-		if (allTasks) {
-			eventsDaySelected = todos.filter((todo) => todo.date === arg.dateStr);
-		} else {
-			if (section === "pending") {
-				eventsDaySelected = allPendingTodos.filter(
-					(todo) => todo.date === arg.dateStr
-				);
-			} else if (section === "completed") {
-				eventsDaySelected = allCompletedTodos.filter(
-					(todo) => todo.date === arg.dateStr
-				);
-			} else {
-				eventsDaySelected = allRemovedTodos.filter(
-					(todo) => todo.date === arg.dateStr
-				);
-			}
-		}
-
-		eventsValues = eventsDaySelected.map((event) => [
-			event.text,
-			event.date,
-			event.color,
-			event.detailed,
-			event.completed,
-			event.removed,
-		]);
-		props.setPropertyEventsValues(eventsValues);
-
-		setShowPanelDay(!showPanelDay);
-	};
-
 	useEffect(() => {
 		const eventsDaySelected = todos.filter(
 			(todo) => todo.date === props.propertyEventsValues[0]?.[1]
@@ -101,8 +103,8 @@ function Calendar(props) {
 		eventsValues = eventsDaySelected.map((event) => [
 			event.text,
 			event.date,
-			event.color,
 			event.detailed,
+			event.color,
 			event.completed,
 			event.removed,
 		]);
@@ -121,8 +123,8 @@ function Calendar(props) {
 	return (
 		<>
 			{!showPanelDay && (
-				<article className='relative flex flex-col items-center justify-center'>
-					<div className='customCheckBoxHolderCalendar absolute top-0 flex items-center justify-center gap-5'>
+				<article className='w-full relative flex flex-col items-center justify-center shadow-calendar rounded-md p-5  border-2 border-wange'>
+					<div className='customCheckBoxHolderCalendar inline-flex absolute top-5 z-50  mx-0'>
 						<input
 							type='checkbox'
 							checked={!allTasks}
@@ -140,19 +142,20 @@ function Calendar(props) {
 							</div>
 						</label>
 					</div>
-					<FullCalendar
-						headerToolbar={{
-							end: "prev,next",
-						}}
-						aspectRatio={4}
-						plugins={[dayGridPlugin, interactionPlugin]}
-						events={calendarEvents}
-						height='auto'
-						selectable
-						eventInteractive
-						eventDisplay='list-item'
-						dateClick={handleDaySelected}
-					/>
+					<div className='relative w-full h-96'>
+						<FullCalendar
+							headerToolbar={{
+								end: "prev,next",
+							}}
+							plugins={[dayGridPlugin, interactionPlugin]}
+							events={calendarEvents}
+							height='100%'
+							selectable
+							eventInteractive
+							eventDisplay='list-item'
+							dateClick={handleDaySelected}
+						/>
+					</div>
 				</article>
 			)}
 		</>

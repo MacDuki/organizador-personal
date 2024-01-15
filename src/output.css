@@ -544,10 +544,6 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.fixed {
-  position: fixed;
-}
-
 .absolute {
   position: absolute;
 }
@@ -556,41 +552,49 @@ video {
   position: relative;
 }
 
-.left-48 {
-  left: 12rem;
-}
-
-.top-1 {
-  top: 0.25rem;
-}
-
-.top-1\.5 {
-  top: 0.375rem;
-}
-
 .top-2 {
   top: 0.5rem;
 }
 
-.top-3 {
-  top: 0.75rem;
+.top-5 {
+  top: 1.25rem;
 }
 
 .top-0 {
   top: 0px;
 }
 
-.left-0 {
-  left: 0px;
-}
-
 .z-50 {
   z-index: 50;
+}
+
+.m-0 {
+  margin: 0px;
 }
 
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+}
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.mx-0 {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 
 .mb-0 {
@@ -625,8 +629,12 @@ video {
   margin-top: 5rem;
 }
 
-.block {
-  display: block;
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-5 {
+  margin-bottom: 1.25rem;
 }
 
 .flex {
@@ -653,8 +661,24 @@ video {
   height: auto;
 }
 
+.h-1\/2 {
+  height: 50%;
+}
+
+.max-h-96 {
+  max-height: 24rem;
+}
+
+.max-h-80 {
+  max-height: 20rem;
+}
+
 .min-h-screen {
   min-height: 100vh;
+}
+
+.min-h-96 {
+  min-height: 24rem;
 }
 
 .w-44 {
@@ -685,16 +709,12 @@ video {
   width: 100%;
 }
 
-.w-screen {
-  width: 100vw;
+.w-1\/2 {
+  width: 50%;
 }
 
-.w-16 {
-  width: 4rem;
-}
-
-.w-36 {
-  width: 9rem;
+.w-3\/4 {
+  width: 75%;
 }
 
 .min-w-40 {
@@ -739,6 +759,10 @@ video {
   align-items: center;
 }
 
+.justify-start {
+  justify-content: flex-start;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -767,12 +791,20 @@ video {
   gap: 1.25rem;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .overflow-x-hidden {
   overflow-x: hidden;
 }
 
 .overflow-y-scroll {
   overflow-y: scroll;
+}
+
+.overscroll-none {
+  overscroll-behavior: none;
 }
 
 .rounded-2xl {
@@ -809,6 +841,22 @@ video {
   border-bottom-width: 1px;
 }
 
+.border-l-2 {
+  border-left-width: 2px;
+}
+
+.border-t-2 {
+  border-top-width: 2px;
+}
+
+.border-b-2 {
+  border-bottom-width: 2px;
+}
+
+.border-r-2 {
+  border-right-width: 2px;
+}
+
 .border-black {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
@@ -817,6 +865,11 @@ video {
 .border-neavy-b {
   --tw-border-opacity: 1;
   border-color: rgb(247 160 114 / var(--tw-border-opacity));
+}
+
+.border-wange {
+  --tw-border-opacity: 1;
+  border-color: rgb(51 51 51 / var(--tw-border-opacity));
 }
 
 .bg-beige {
@@ -848,13 +901,16 @@ video {
   background-color: rgb(51 51 51 / var(--tw-bg-opacity));
 }
 
-.bg-black {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-}
-
 .p-0 {
   padding: 0px;
+}
+
+.p-5 {
+  padding: 1.25rem;
+}
+
+.p-20 {
+  padding: 5rem;
 }
 
 .px-10 {
@@ -920,11 +976,6 @@ video {
   line-height: 1.75rem;
 }
 
-.text-9xl {
-  font-size: 8rem;
-  line-height: 1;
-}
-
 .text-slate-50 {
   --tw-text-opacity: 1;
   color: rgb(248 250 252 / var(--tw-text-opacity));
@@ -933,11 +984,6 @@ video {
 .text-wange {
   --tw-text-opacity: 1;
   color: rgb(51 51 51 / var(--tw-text-opacity));
-}
-
-.text-beige {
-  --tw-text-opacity: 1;
-  color: rgb(239 236 202 / var(--tw-text-opacity));
 }
 
 .placeholder-black::-moz-placeholder {
@@ -950,6 +996,12 @@ video {
   color: rgb(0 0 0 / var(--tw-placeholder-opacity));
 }
 
+.shadow-calendar {
+  --tw-shadow: 22px 16px 10px 5px rgba(0,0,0,0.1);
+  --tw-shadow-colored: 22px 16px 10px 5px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
@@ -960,6 +1012,14 @@ video {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+.duration-500 {
+  transition-duration: 500ms;
+}
+
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .placeholder\:text-center::-moz-placeholder {

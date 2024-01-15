@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { React, useContext, useEffect, useState } from "react";
-import { generalContext } from "../../functions/GeneralContext";
+import { React, useEffect, useState } from "react";
 import { TaskItemButtons } from "../TaskItemButtons/TaskItemButtons";
 
 function TaskItem({
@@ -11,9 +10,8 @@ function TaskItem({
 	handleClickEliminate,
 	section,
 }) {
-	const { allCompletedTodos, allRemovedTodos } = useContext(generalContext);
 	const [backGroundColorVariable, setBackGroundColorVariable] =
-		useState("bg-transparent");
+		useState("bg-beige");
 	const [forceUpdateLi, setForceUpdateLi] = useState(0);
 
 	useEffect(() => {

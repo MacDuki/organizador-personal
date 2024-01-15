@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React, { useEffect } from "react";
 import { TaskItem } from "../LeftSection/TaskItem/TaskItem";
 import { TaskList } from "../LeftSection/TaskList/TaskList";
@@ -194,7 +195,11 @@ function GeneralContext({ children }) {
 
 	function renderContent() {
 		return (
-			<>
+			<motion.div
+				initial={{ scale: 0 }}
+				animate={{ scale: 1 }}
+				transition={{ ease: "easeOut", duration: 0.35 }}
+				className=' h-96'>
 				<input
 					placeholder='Buscar ToDoS'
 					className='text-xl w-full bg-wange rounded-t text-slate-50 px-2 py-1 placeholder:text-slate-50 placeholder:text-center focus:placeholder-transparent focus:outline-none'
@@ -207,7 +212,7 @@ function GeneralContext({ children }) {
 						? sectionComponents[section]() /*Linea 214*/
 						: null}
 				</TaskList>
-			</>
+			</motion.div>
 		);
 	}
 
@@ -224,8 +229,10 @@ function GeneralContext({ children }) {
 
 	const [selectDayPanel, setSelectDayPanel] = React.useState(false);
 	const [selectedDay, setSelectedDay] = React.useState();
-	const [eventsDayLeft, setEventsDayLeft] = React.useState();
+	const [dayPanelSelected, setDayPanelSelected] = React.useState();
+
 	const [showPanelDay, setShowPanelDay] = React.useState(false);
+
 	return (
 		<generalContext.Provider
 			value={{
@@ -261,6 +268,8 @@ function GeneralContext({ children }) {
 				setSelectedDay,
 				showPanelDay,
 				setShowPanelDay,
+				dayPanelSelected,
+				setDayPanelSelected,
 			}}>
 			{children}
 		</generalContext.Provider>

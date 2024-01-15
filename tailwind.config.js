@@ -19,6 +19,9 @@ export default {
 			borderWidth: {
 				1: "1px",
 			},
+			boxShadow: {
+				calendar: "22px 16px 10px 5px rgba(0,0,0,0.1)",
+			},
 		},
 	},
 	plugins: [],
