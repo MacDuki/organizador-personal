@@ -612,6 +612,10 @@ video {
   margin-top: 5rem;
 }
 
+.mt-5 {
+  margin-top: 1.25rem;
+}
+
 .flex {
   display: flex;
 }
@@ -622,6 +626,10 @@ video {
 
 .list-item {
   display: list-item;
+}
+
+.h-20 {
+  height: 5rem;
 }
 
 .h-8 {
@@ -636,8 +644,16 @@ video {
   height: auto;
 }
 
-.h-20 {
-  height: 5rem;
+.h-16 {
+  height: 4rem;
+}
+
+.h-10 {
+  height: 2.5rem;
+}
+
+.h-14 {
+  height: 3.5rem;
 }
 
 .min-h-96 {

@@ -93,6 +93,20 @@ function GeneralContext({ children }) {
 						}
 					/>
 				)),
+		results: () =>
+			searchValue.trim() !== ""
+				? todos
+						.filter((todo) => {
+							const regex = new RegExp(
+								`.*${searchValue.split("").join(".*")}.*`,
+								"i"
+							);
+							return regex.test(todo.text);
+						})
+						.map((todo) => (
+							<TaskItem key={todo.id} section={todo.section} text={todo.text} />
+						))
+				: "No hay resultados",
 	};
 
 	// logica para secciones
@@ -203,18 +217,25 @@ function GeneralContext({ children }) {
 				<input
 					placeholder='Buscar ToDoS'
 					className='text-xl w-full bg-wange rounded-t text-slate-50 px-2 py-1 placeholder:text-slate-50 placeholder:text-center focus:placeholder-transparent focus:outline-none'
+					onChange={(e) => {
+						setSearchValue(e.target.value);
+					}}
 				/>
 				<TaskList>
 					{loading ? <p>Cargando ...</p> : null}
 					{error ? <p>Hay un error fatal</p> : null}
 					{!loading && todos.length < 1 ? <p>Crea tu primer Todo</p> : null}
-					{!loading && todos.length >= 1
+					{!loading && todos.length >= 1 && searchValue.length <= 0
 						? sectionComponents[section]() /*Linea 214*/
+						: !loading && todos.length >= 1 && searchValue.length >= 1
+						? sectionComponents["results"]()
 						: null}
 				</TaskList>
 			</motion.div>
 		);
 	}
+
+	const [searchValue, setSearchValue] = React.useState("");
 
 	useEffect(() => {
 		const fecha = new Date();

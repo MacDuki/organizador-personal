@@ -9,7 +9,7 @@ function NavBar() {
 	return (
 		<motion.nav
 			className={
-				"w-auto h-auto relative z-50 inline-flex justify-center items-center"
+				"w-auto h-10  mt-5 relative z-50 inline-flex justify-center items-center"
 			}>
 			{!showPanel ? <CreateTaskPanel /> : <Panel />}
 		</motion.nav>
