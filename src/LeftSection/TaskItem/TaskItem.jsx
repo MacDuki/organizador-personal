@@ -19,7 +19,7 @@ function TaskItem({
 			setBackGroundColorVariable("bg-greenPastel");
 		} else if (section === "removed") {
 			setBackGroundColorVariable("bg-redPastel");
-		} else if (section === "pending") {
+		} else {
 			setBackGroundColorVariable("bg-beige");
 		}
 		setForceUpdateLi(forceUpdateLi + 1);

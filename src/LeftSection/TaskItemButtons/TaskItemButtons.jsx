@@ -56,7 +56,7 @@ function TaskItemButtons({
 					</span>
 				</>
 			);
-		} else if (section === "pending") {
+		} else {
 			return (
 				<>
 					<span

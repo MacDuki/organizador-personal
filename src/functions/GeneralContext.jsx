@@ -54,55 +54,24 @@ function GeneralContext({ children }) {
 			allPendingTodos
 				.filter((todo) => todo.date === selectedDay)
 				.map((todo) => (
-					<TaskItem
-						key={todo.id}
-						section={"pending"}
-						text={todo.text}
-						handleClickCheck={() => handleTodoActions(todo.text, "check")}
-						handleClickRemoved={() => handleTodoActions(todo.text, "removed")}
-					/>
+					<TaskItem key={todo.id} section={todo.section} text={todo.text} />
 				)),
 		completed: () =>
 			allCompletedTodos
 				.filter((todo) => todo.date === selectedDay)
 				.map((todo) => (
-					<TaskItem
-						key={todo.id}
-						section={"completed"}
-						text={todo.text}
-						handleClickRemoved={() => handleTodoActions(todo.text, "removed")}
-						handleClickDiscarded={() =>
-							handleTodoActions(todo.text, "discarded")
-						}
-					/>
+					<TaskItem key={todo.id} section={todo.section} text={todo.text} />
 				)),
 		removed: () =>
 			allRemovedTodos
 				.filter((todo) => todo.date === selectedDay)
 				.map((todo) => (
-					<TaskItem
-						key={todo.id}
-						section={"removed"}
-						text={todo.text}
-						handleClickCheck={() => handleTodoActions(todo.text, "check")}
-						handleClickDiscarded={() =>
-							handleTodoActions(todo.text, "discarded")
-						}
-						handleClickEliminate={() =>
-							handleTodoActions(todo.text, "eliminate")
-						}
-					/>
+					<TaskItem key={todo.id} section={todo.section} text={todo.text} />
 				)),
 		results: () =>
 			searchValue.trim() !== ""
 				? todos
-						.filter((todo) => {
-							const regex = new RegExp(
-								`.*${searchValue.split("").join(".*")}.*`,
-								"i"
-							);
-							return regex.test(todo.text);
-						})
+						.filter((todo) => todo.text.toLowerCase().startsWith(searchValue))
 						.map((todo) => (
 							<TaskItem key={todo.id} section={todo.section} text={todo.text} />
 						))
@@ -215,10 +184,10 @@ function GeneralContext({ children }) {
 				transition={{ ease: "easeOut", duration: 0.35 }}
 				className=' h-96'>
 				<input
-					placeholder='Buscar ToDoS'
+					placeholder='Search'
 					className='text-xl w-full bg-wange rounded-t text-slate-50 px-2 py-1 placeholder:text-slate-50 placeholder:text-center focus:placeholder-transparent focus:outline-none'
 					onChange={(e) => {
-						setSearchValue(e.target.value);
+						setSearchValue(e.target.value.toLowerCase());
 					}}
 				/>
 				<TaskList>
