@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React, { useEffect } from "react";
+import { SearchingTasks } from "../LeftSection/SearchingTasks/SearchingTasks";
 import { TaskItem } from "../LeftSection/TaskItem/TaskItem";
 import { TaskList } from "../LeftSection/TaskList/TaskList";
 import { useLocalStorage } from "../functions/useLocalStorage";
@@ -69,9 +70,17 @@ function GeneralContext({ children }) {
 					<TaskItem key={todo.id} section={todo.section} text={todo.text} />
 				)),
 		results: () =>
-			searchValue.trim() !== ""
+			searchValue.trim() !== "" && !searchToday
 				? todos
 						.filter((todo) => todo.text.toLowerCase().startsWith(searchValue))
+
+						.map((todo) => (
+							<TaskItem key={todo.id} section={todo.section} text={todo.text} />
+						))
+				: searchValue.trim() !== "" && searchToday
+				? todos
+						.filter((todo) => todo.text.toLowerCase().startsWith(searchValue))
+						.filter((todo) => todo.date === selectedDay)
 						.map((todo) => (
 							<TaskItem key={todo.id} section={todo.section} text={todo.text} />
 						))
@@ -183,13 +192,7 @@ function GeneralContext({ children }) {
 				animate={{ scale: 1 }}
 				transition={{ ease: "easeOut", duration: 0.35 }}
 				className=' h-96'>
-				<input
-					placeholder='Search'
-					className='text-xl w-full bg-wange rounded-t text-slate-50 px-2 py-1 placeholder:text-slate-50 placeholder:text-center focus:placeholder-transparent focus:outline-none'
-					onChange={(e) => {
-						setSearchValue(e.target.value.toLowerCase());
-					}}
-				/>
+				<SearchingTasks />
 				<TaskList>
 					{loading ? <p>Cargando ...</p> : null}
 					{error ? <p>Hay un error fatal</p> : null}
@@ -205,6 +208,7 @@ function GeneralContext({ children }) {
 	}
 
 	const [searchValue, setSearchValue] = React.useState("");
+	const [searchToday, setSearchToday] = React.useState(false);
 
 	useEffect(() => {
 		const fecha = new Date();
@@ -260,6 +264,10 @@ function GeneralContext({ children }) {
 				setShowPanelDay,
 				dayPanelSelected,
 				setDayPanelSelected,
+				searchValue,
+				setSearchValue,
+				searchToday,
+				setSearchToday,
 			}}>
 			{children}
 		</generalContext.Provider>
