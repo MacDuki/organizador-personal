@@ -23,10 +23,10 @@ function CreateTaskPanel() {
 			initial={{ scale: 0 }}
 			animate={{ scale: 1 }}
 			transition={{ ease: "easeOut", duration: 0.35 }}
-			className='flex items-center justify-center h-20 '>
+			className='flex items-center justify-center h-20 w-3/4 md:w-auto mt-40 md:mt-0 '>
 			<motion.form
 				layout
-				className='flex justify-around relative items-center min-w-40 h-auto border-2 bg-neavy-b border-black py-4 px-10 gap-10 rounded-full '
+				className='flex flex-col md:flex-row w-full justify-around relative items-center min-w-40 h-auto border-2 bg-neavy-b border-black py-2 md:py-4 gap-5 md:px-10 gap-10 rounded-xl '
 				onSubmit={(e) => {
 					e.preventDefault();
 					createTodo();
@@ -42,7 +42,7 @@ function CreateTaskPanel() {
 						setNewTodoText(e.target.value);
 					}}
 					value={newTodoText}
-					className='bg-transparent border-b border-neavy-b focus:outline-none focus:border-black focus:ring-0 h-8 w-44 placeholder-black '
+					className='text-xl bg-transparent border-b border-neavy-b focus:outline-none focus:border-black focus:ring-0 h-10 text-center md:h-8 w-full md:w-44 placeholder-black '
 				/>
 
 				<div className='customCheckBoxHolder flex items-center justify-center gap-5'>
@@ -83,7 +83,7 @@ function CreateTaskPanel() {
 					</button>
 				)}
 
-				<div className='relative flex items-center justify-center w-auto h-auto z-50 ml-10'>
+				<div className='relative flex items-center justify-center w-auto h-auto z-50 ml-0 md:ml-10'>
 					<AiOutlineCloseCircle
 						onClick={() => {
 							handlePanelVisibility();
