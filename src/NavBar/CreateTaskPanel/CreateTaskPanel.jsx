@@ -32,14 +32,13 @@ function CreateTaskPanel() {
 					e.preventDefault();
 					createTodo();
 					setTimeout(() => {
-						handlePanelVisibility();
 						setSection("pending");
 					}, 100);
 				}}>
 				<input
 					required
 					type='text'
-					placeholder='Nueva tarea...'
+					placeholder='New task ...'
 					onChange={(e) => setNewTodoText(e.target.value)}
 					value={newTodoText}
 					className='bg-transparent border-b border-neavy-b focus:outline-none focus:border-black focus:ring-0 h-8 w-44 placeholder-black '
@@ -79,7 +78,7 @@ function CreateTaskPanel() {
 				<button
 					type='submit'
 					className=' w-22 px-4 py-1 h-auto border-2 border-black select-none rounded-md'>
-					Agregar
+					Add
 				</button>
 
 				<div className='relative flex items-center justify-center w-auto h-auto z-50 ml-10'>

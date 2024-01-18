@@ -55,19 +55,44 @@ function GeneralContext({ children }) {
 			allPendingTodos
 				.filter((todo) => todo.date === selectedDay)
 				.map((todo) => (
-					<TaskItem key={todo.id} section={todo.section} text={todo.text} />
+					<TaskItem
+						key={todo.id}
+						section={todo.section}
+						text={todo.text}
+						handleClickCheck={() => handleTodoActions(todo.text, "check")}
+						handleClickRemoved={() => handleTodoActions(todo.text, "removed")}
+					/>
 				)),
 		completed: () =>
 			allCompletedTodos
 				.filter((todo) => todo.date === selectedDay)
 				.map((todo) => (
-					<TaskItem key={todo.id} section={todo.section} text={todo.text} />
+					<TaskItem
+						key={todo.id}
+						section={todo.section}
+						text={todo.text}
+						handleClickRemoved={() => handleTodoActions(todo.text, "removed")}
+						handleClickDiscarded={() =>
+							handleTodoActions(todo.text, "discarded")
+						}
+					/>
 				)),
 		removed: () =>
 			allRemovedTodos
 				.filter((todo) => todo.date === selectedDay)
 				.map((todo) => (
-					<TaskItem key={todo.id} section={todo.section} text={todo.text} />
+					<TaskItem
+						key={todo.id}
+						section={todo.section}
+						text={todo.text}
+						handleClickCheck={() => handleTodoActions(todo.text, "check")}
+						handleClickDiscarded={() =>
+							handleTodoActions(todo.text, "discarded")
+						}
+						handleClickEliminate={() =>
+							handleTodoActions(todo.text, "eliminate")
+						}
+					/>
 				)),
 		results: () =>
 			searchValue.trim() !== "" && !searchToday
@@ -140,14 +165,17 @@ function GeneralContext({ children }) {
 			textArea: newTodoTextArea,
 		};
 
-		if (newTodoText === " " || newTodoText.length === 0) {
-			alert("Nada de vacio perrita");
-		} else if (updatedTodos.every((todo) => todo.text !== newTodoText)) {
+		if (newTodoText.trim().length === 0) {
+			alert("Alerta de repetido");
+		} else if (
+			!updatedTodos.some(
+				(todo) =>
+					todo.text === newTodoText && todo.date === obtenerFechaActual()
+			)
+		) {
 			updatedTodos.push(nuevoTodo);
 			saveLocalStorage(updatedTodos);
 			setNewTodoText("");
-			console.log(`${nuevoTodo.textArea}`);
-			console.log(`${nuevoTodo.detailed}`);
 		} else {
 			setNewTodoText("");
 			alert("Nada de repetidos perrita");
@@ -191,7 +219,7 @@ function GeneralContext({ children }) {
 				initial={{ scale: 0 }}
 				animate={{ scale: 1 }}
 				transition={{ ease: "easeOut", duration: 0.35 }}
-				className=' h-96'>
+				className=' max-h-80 h-auto '>
 				<SearchingTasks />
 				<TaskList>
 					{loading ? <p>Cargando ...</p> : null}

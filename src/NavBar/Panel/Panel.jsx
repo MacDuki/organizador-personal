@@ -29,12 +29,14 @@ function Panel() {
 						className='select-none mr-1 cursor-pointer'>
 						{selectedDay}
 					</span>
-					<MdOutlineDateRange
-						className='select-none cursor-pointer'
-						onClick={() => {
-							setSelectDayPanel(!selectDayPanel);
-						}}
-					/>
+					{!selectDayPanel && (
+						<MdOutlineDateRange
+							className='select-none cursor-pointer'
+							onClick={() => {
+								setSelectDayPanel(!selectDayPanel);
+							}}
+						/>
+					)}
 				</div>
 				{selectDayPanel && (
 					<motion.div

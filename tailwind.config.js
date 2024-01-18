@@ -12,9 +12,14 @@ export default {
 				greenPastel: "#52976f",
 				redPastel: "#FC5130",
 				yellowPastel: "#F9C80E",
+				"bg-beigeItem": "#F9C80E",
 			},
 			height: {
 				600: "600px",
+				94: "20rem",
+			},
+			maxHeight: {
+				"max-height-94": "20rem",
 			},
 			borderWidth: {
 				1: "1px",

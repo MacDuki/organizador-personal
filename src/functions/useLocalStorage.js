@@ -18,7 +18,7 @@ function useLocalStorage(itemName, initialValue) {
 					parsedItem = JSON.parse(localStorageItem);
 					setItem(parsedItem);
 				}
-				console.log("Se ejecuta efecto");
+
 				setLoading(false);
 			} catch (error) {
 				setLoading(false);

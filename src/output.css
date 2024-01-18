@@ -628,6 +628,10 @@ video {
   display: list-item;
 }
 
+.h-10 {
+  height: 2.5rem;
+}
+
 .h-20 {
   height: 5rem;
 }
@@ -644,16 +648,8 @@ video {
   height: auto;
 }
 
-.h-16 {
-  height: 4rem;
-}
-
-.h-10 {
-  height: 2.5rem;
-}
-
-.h-14 {
-  height: 3.5rem;
+.max-h-80 {
+  max-height: 20rem;
 }
 
 .min-h-96 {
@@ -898,11 +894,6 @@ video {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-.py-5 {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
 }
 
 .pr-8 {

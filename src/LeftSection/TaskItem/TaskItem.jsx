@@ -11,7 +11,7 @@ function TaskItem({
 	section,
 }) {
 	const [backGroundColorVariable, setBackGroundColorVariable] =
-		useState("bg-beige");
+		useState("bg-beigeItem");
 	const [forceUpdateLi, setForceUpdateLi] = useState(0);
 
 	useEffect(() => {
@@ -20,7 +20,7 @@ function TaskItem({
 		} else if (section === "removed") {
 			setBackGroundColorVariable("bg-redPastel");
 		} else {
-			setBackGroundColorVariable("bg-beige");
+			setBackGroundColorVariable("bg-beigeItem");
 		}
 		setForceUpdateLi(forceUpdateLi + 1);
 	}, [section]);

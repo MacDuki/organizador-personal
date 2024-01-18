@@ -8,7 +8,7 @@ function PrincipalApp() {
 		<main className='w-full min-h-screen flex flex-col justify-center  bg-beige  '>
 			<GeneralContext>
 				<NavBar />
-				<section className='flex justify-center items-start gap-20 px-5 py-2'>
+				<section className='flex h-auto justify-center items-start gap-20 px-5 py-2'>
 					<LeftApp />
 					<RightApp />
 				</section>
