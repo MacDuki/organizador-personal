@@ -22,11 +22,11 @@ function Panel2() {
 	}, [section]);
 	return (
 		<>
-			<div className='inline-flex flex-col justify-center gap-5 items-center relative w-auto md:flex-row '>
-				<div className='flex flex-row items-center  justify-center'>
+			<div className='inline-flex flex-col justify-center gap-3 md:gap-5 items-center relative w-auto md:flex-row '>
+				<div className='flex flex-row items-center text-2xl justify-center'>
 					<span>
 						<BsArrowLeftCircle
-							className='arrow-icons cursor-pointer w-5 h-auto'
+							className='arrow-icons cursor-pointer w-7 md:w-5 h-auto'
 							onClick={() => sectionSetFunction.left()}
 						/>
 					</span>
@@ -36,17 +36,17 @@ function Panel2() {
 						initial={{ scale: 0 }}
 						animate={{ scale: 1 }}
 						transition={{ ease: "easeOut", duration: 0.3 }}
-						className='select-none left-tittle mx-2'>
+						className='select-none left-tittle mx-4 md:mx-2'>
 						{tittle}
 					</motion.h2>
 					<span>
 						<BsArrowRightCircle
-							className='arrow-icons cursor-pointer w-5 h-auto'
+							className='arrow-icons cursor-pointer w-7 md:w-5 h-auto'
 							onClick={() => sectionSetFunction.right()}
 						/>
 					</span>
 				</div>
-				<div className='flex flex-row items-center justify-around gap-1'>
+				<div className='flex  flex-col md:flex-row items-center justify-around gap-1 text-2xl'>
 					<TasksCounter />
 					<AiOutlinePlusCircle
 						onClick={() => {

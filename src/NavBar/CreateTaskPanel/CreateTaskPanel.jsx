@@ -15,7 +15,6 @@ function CreateTaskPanel() {
 		todayTask,
 		setFechaIndicada,
 	} = React.useContext(generalContext);
-
 	function handleCheckboxDate() {
 		setTodayTask(!todayTask);
 	}
@@ -39,7 +38,9 @@ function CreateTaskPanel() {
 					required
 					type='text'
 					placeholder='New task ...'
-					onChange={(e) => setNewTodoText(e.target.value)}
+					onChange={(e) => {
+						setNewTodoText(e.target.value);
+					}}
 					value={newTodoText}
 					className='bg-transparent border-b border-neavy-b focus:outline-none focus:border-black focus:ring-0 h-8 w-44 placeholder-black '
 				/>
@@ -74,12 +75,13 @@ function CreateTaskPanel() {
 						</motion.div>
 					)}
 				</div>
-
-				<button
-					type='submit'
-					className=' w-22 px-4 py-1 h-auto border-2 border-black select-none rounded-md'>
-					Add
-				</button>
+				{newTodoText.length >= 1 && (
+					<button
+						type='submit'
+						className=' w-22 px-4 py-1 h-auto border-2 border-black select-none rounded-md'>
+						Add
+					</button>
+				)}
 
 				<div className='relative flex items-center justify-center w-auto h-auto z-50 ml-10'>
 					<AiOutlineCloseCircle

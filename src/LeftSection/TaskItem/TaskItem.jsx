@@ -20,7 +20,7 @@ function TaskItem({
 		} else if (section === "removed") {
 			setBackGroundColorVariable("bg-redPastel");
 		} else {
-			setBackGroundColorVariable("bg-beigeItem");
+			setBackGroundColorVariable("bg-yellowPastel");
 		}
 		setForceUpdateLi(forceUpdateLi + 1);
 	}, [section]);

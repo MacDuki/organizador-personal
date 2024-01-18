@@ -12,7 +12,6 @@ export default {
 				greenPastel: "#52976f",
 				redPastel: "#FC5130",
 				yellowPastel: "#F9C80E",
-				"bg-beigeItem": "#F9C80E",
 			},
 			height: {
 				600: "600px",
