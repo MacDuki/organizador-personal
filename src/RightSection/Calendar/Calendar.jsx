@@ -123,8 +123,8 @@ function Calendar(props) {
 	return (
 		<>
 			{!showPanelDay && (
-				<article className='w-full relative flex flex-col items-center justify-center shadow-calendar rounded-md p-5  border-2 border-wange'>
-					<div className='customCheckBoxHolderCalendar inline-flex absolute top-5 z-50  mx-0'>
+				<article className='w-full relative flex flex-col items-center lg:items-start justify-center shadow-calendar rounded-md p-5  border-2 border-wange'>
+					<div className='customCheckBoxHolderCalendar inline-flex ml-0 '>
 						<input
 							type='checkbox'
 							checked={!allTasks}
@@ -137,7 +137,7 @@ function Calendar(props) {
 						<label for='cCB2' class='customCheckBoxWrapperCalendar'>
 							<div className='customCheckBoxCalendar'>
 								<div className='innerCalendar  min-w-48 text-center'>
-									Tareas: {section}{" "}
+									Only {section} tasks{" "}
 								</div>
 							</div>
 						</label>

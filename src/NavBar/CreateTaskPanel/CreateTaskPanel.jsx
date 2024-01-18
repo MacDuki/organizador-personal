@@ -42,7 +42,7 @@ function CreateTaskPanel() {
 						setNewTodoText(e.target.value);
 					}}
 					value={newTodoText}
-					className='text-xl bg-transparent border-b border-neavy-b focus:outline-none focus:border-black focus:ring-0 h-10 text-center md:h-8 w-full md:w-44 placeholder-black '
+					className='text-xl bg-transparent border-b border-neavy-b focus:outline-none focus:placeholder:text-transparent focus:border-black focus:ring-0 h-10 text-center md:h-8 w-full md:w-44 placeholder-black '
 				/>
 
 				<div className='customCheckBoxHolder flex items-center justify-center gap-5'>
@@ -75,21 +75,23 @@ function CreateTaskPanel() {
 						</motion.div>
 					)}
 				</div>
-				{newTodoText.length >= 1 && (
-					<button
-						type='submit'
-						className=' w-22 px-4 py-1 h-auto border-2 border-black select-none rounded-md'>
-						Add
-					</button>
-				)}
+				<div className='flex gap-10 '>
+					{newTodoText.length >= 1 && (
+						<button
+							type='submit'
+							className=' w-22 px-4 py-1 h-auto border-2 border-black select-none rounded-md'>
+							Add
+						</button>
+					)}
 
-				<div className='relative flex items-center justify-center w-auto h-auto z-50 ml-0 md:ml-10'>
-					<AiOutlineCloseCircle
-						onClick={() => {
-							handlePanelVisibility();
-						}}
-						className='w-6 h-auto cursor-pointer'
-					/>
+					<div className='relative flex items-center justify-center w-auto h-auto z-50 ml-0 md:ml-10'>
+						<AiOutlineCloseCircle
+							onClick={() => {
+								handlePanelVisibility();
+							}}
+							className='w-6 h-auto cursor-pointer'
+						/>
+					</div>
 				</div>
 			</motion.form>
 		</motion.div>

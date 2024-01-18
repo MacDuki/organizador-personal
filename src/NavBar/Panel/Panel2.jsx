@@ -12,11 +12,11 @@ function Panel2() {
 	const [tittle, setTittle] = React.useState("Tasks Pending");
 	useEffect(() => {
 		if (section === "pending") {
-			setTittle("Tasks Pending");
+			setTittle("Pending tasks");
 		} else if (section === "completed") {
-			setTittle("Tasks Completed");
+			setTittle("Completed tasks");
 		} else if (section === "removed") {
-			setTittle("Removed Tasks");
+			setTittle("Removed tasks");
 		}
 		setForceUpdate(forceUpdate + 1);
 	}, [section]);
@@ -46,7 +46,7 @@ function Panel2() {
 						/>
 					</span>
 				</div>
-				<div className='flex  flex-col md:flex-row items-center justify-around gap-1 text-2xl'>
+				<div className='flex flex-row items-center justify-around gap-10 md:gap-2 text-2xl'>
 					<TasksCounter />
 					<AiOutlinePlusCircle
 						onClick={() => {

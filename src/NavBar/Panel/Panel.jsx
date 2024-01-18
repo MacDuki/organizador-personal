@@ -20,7 +20,7 @@ function Panel() {
 			layout
 			className='flex flex-col mt-36 md:mt-0 md:flex-row justify-center items-center relative h-20 '>
 			<div className='inline-flex flex-col md:flex-row justify-center items-center relative w-auto mr-2 px-10 py-2 border border-black rounded-2xl bg-wange text-slate-50 '>
-				<div className='flex flex-row text-2xl items-center gap-1 mb-3 md:mb-0 md:mr-4'>
+				<div className='flex flex-row text-2xl md:text-xl lg:text-2xl items-center gap-1 mb-3 md:mb-0 md:mr-4'>
 					<h2 className='select-none left-tittle '>Date:</h2>
 					<span
 						onClick={() => {
