@@ -30,7 +30,7 @@ function SearchingTasks() {
 			)}
 			<input
 				placeholder='Search'
-				className='text-xl w-full bg-wange rounded-t text-slate-50 px-2 py-1 placeholder:text-slate-50 placeholder:text-center focus:placeholder-transparent focus:outline-none'
+				className='text-xl w-full bg-wange rounded-t text-slate-50 px-2 py-1 placeholder:text-slate-50 placeholder:text-center focus:placeholder-transparent focus:outline-none '
 				onChange={(e) => {
 					setSearchValue(e.target.value.toLowerCase());
 				}}

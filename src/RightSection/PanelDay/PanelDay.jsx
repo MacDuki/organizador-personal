@@ -5,6 +5,7 @@ import { BsTrash } from "react-icons/bs";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { MdOutlineTaskAlt } from "react-icons/md";
 import { generalContext } from "../../functions/GeneralContext";
+import { TasksCounterPanelDay } from "./TaskCounterPanelDay";
 function PanelDay(props) {
 	const { handleTodoActions, setShowPanelDay, showPanelDay, dayPanelSelected } =
 		React.useContext(generalContext);
@@ -21,17 +22,20 @@ function PanelDay(props) {
 						exit={{ scale: 0 }}
 						transition={{ ease: "easeOut", duration: 0.35 }}
 						className='w-full min-h-96 relative flex flex-col items-center justify-center shadow-calendar rounded-md px-2 py-2 overflow-y-scroll  border-2 border-wange'>
-						<div className=' w-full h-96'>
-							<div className='flex gap-3  mb-8 items-center justify-between bg-wange rounded-md px-2 py-1'>
-								<IoIosCloseCircleOutline
-									className='cursor-pointer w-7 h-auto text-beige transform transition-transform  duration-300 hover:scale-125'
-									onClick={() => {
-										setShowPanelDay(!showPanelDay);
-									}}
-								/>
-								<div className='flex gap-1 items-center justify-center text-beige '>
-									<p className='text-2xl'> Date:</p>
-									<p className='text-2xl'>{fechaFormateada}</p>
+						<div className='  w-full mx-auto h-96'>
+							<div className='w-full  md:w-2/3   mb-8 mx-auto'>
+								<div className='flex items-center justify-around bg-wange rounded-md px-2 py-1'>
+									<IoIosCloseCircleOutline
+										className='cursor-pointer w-7 h-auto text-beige transform transition-transform  duration-300 hover:scale-125'
+										onClick={() => {
+											setShowPanelDay(!showPanelDay);
+										}}
+									/>
+									<TasksCounterPanelDay />
+									<div className='flex gap-1 items-center justify-center text-beige '>
+										<p className='text-2xl'> Date:</p>
+										<p className='text-2xl'>{fechaFormateada}</p>
+									</div>
 								</div>
 							</div>
 
