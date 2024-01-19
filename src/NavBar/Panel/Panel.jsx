@@ -12,6 +12,9 @@ function Panel() {
 		setSelectedDay(arg.target.value);
 	};
 
+	const partesFecha = selectedDay?.split("-");
+	const fechaFormateada = partesFecha?.reverse().join("-");
+
 	return (
 		<motion.div
 			initial={{ scale: 0 }}
@@ -27,7 +30,7 @@ function Panel() {
 							setSelectDayPanel(!selectDayPanel);
 						}}
 						className='select-none mr-1 cursor-pointer'>
-						{selectedDay}
+						{fechaFormateada}
 					</span>
 					{!selectDayPanel && (
 						<MdOutlineDateRange

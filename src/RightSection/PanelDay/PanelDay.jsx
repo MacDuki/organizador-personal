@@ -8,6 +8,9 @@ import { generalContext } from "../../functions/GeneralContext";
 function PanelDay(props) {
 	const { handleTodoActions, setShowPanelDay, showPanelDay, dayPanelSelected } =
 		React.useContext(generalContext);
+
+	const partesFecha = dayPanelSelected?.split("-");
+	const fechaFormateada = partesFecha?.reverse().join("-");
 	return (
 		<AnimatePresence>
 			<div className='w-full'>
@@ -17,80 +20,92 @@ function PanelDay(props) {
 						animate={{ scale: 1 }}
 						exit={{ scale: 0 }}
 						transition={{ ease: "easeOut", duration: 0.35 }}
-						className='w-full min-h-96 relative flex flex-col items-center justify-center shadow-calendar rounded-md p-5 overflow-y-scroll  border-2 border-wange'>
+						className='w-full min-h-96 relative flex flex-col items-center justify-center shadow-calendar rounded-md px-2 py-2 overflow-y-scroll  border-2 border-wange'>
 						<div className=' w-full h-96'>
-							<IoIosCloseCircleOutline
-								className='cursor-pointer mx-auto my-5 w-5 h-auto'
-								onClick={() => {
-									setShowPanelDay(!showPanelDay);
-								}}
-							/>
-							<p>
-								FECHA
-								{dayPanelSelected}
-							</p>
+							<div className='flex gap-3  mb-8 items-center justify-between bg-wange rounded-md px-2 py-1'>
+								<IoIosCloseCircleOutline
+									className='cursor-pointer w-7 h-auto text-beige'
+									onClick={() => {
+										setShowPanelDay(!showPanelDay);
+									}}
+								/>
+								<div className='flex gap-1 items-center justify-center text-beige '>
+									<p className='text-2xl'> Date:</p>
+									<p className='text-2xl'>{fechaFormateada}</p>
+								</div>
+							</div>
+
 							{props.propertyEventsValues.map((value, index) => (
-								<>
-									<div
-										key={index}
-										className='border-2 border-black w-3/4 mx-auto transition duration-500 ease-in-out animate-color-change'
-										style={{ backgroundColor: value[3] }}>
-										<p>{value[0]}</p>
-										{value[4] ? (
-											<div className='flex flex-row '>
-												Completado
+								<div
+									key={index}
+									className='border-2 border-black w-3/4 mx-auto transition duration-500 ease-in-out animate-color-change mb-1 rounded-md px-2'
+									style={{ backgroundColor: value[3] }}>
+									<p className='text-2xl inline'>{value[0]}</p>
+									{value[4] ? (
+										<div className='flex flex-row items-center gap-5 justify-end'>
+											<div className='flex w-auto '>
 												<AiOutlineReload
 													onClick={() => {
 														handleTodoActions(value[0], "discarded");
 													}}
+													className='w-6 h-auto'
 												/>
 												<AiOutlineCloseCircle
 													onClick={() => {
 														handleTodoActions(value[0], "removed");
 													}}
+													className='w-6 h-auto'
 												/>
 												<BsTrash
 													onClick={() => {
 														handleTodoActions(value[0], "eliminate");
 													}}
+													className='w-6 h-auto'
 												/>
 											</div>
-										) : value[5] ? (
-											<div className='flex flex-row '>
-												Removido
+										</div>
+									) : value[5] ? (
+										<div className='flex flex-row items-center gap-5 justify-end'>
+											<div className='flex w-auto  '>
 												<BsTrash
 													onClick={() => {
 														handleTodoActions(value[0], "eliminate");
 													}}
+													className='w-6 h-auto'
 												/>
 												<MdOutlineTaskAlt
 													onClick={() => {
 														handleTodoActions(value[0], "check");
 													}}
+													className='w-6 h-auto'
 												/>
 												<AiOutlineReload
 													onClick={() => {
 														handleTodoActions(value[0], "discarded");
 													}}
+													className='w-6 h-auto'
 												/>
 											</div>
-										) : (
-											<div className='flex flex-row '>
-												Pendiente
+										</div>
+									) : (
+										<div className='flex flex-row items-center gap-5 justify-end'>
+											<div className='flex w-auto  '>
 												<MdOutlineTaskAlt
 													onClick={() => {
 														handleTodoActions(value[0], "check");
 													}}
+													className='w-6 h-auto'
 												/>
 												<AiOutlineCloseCircle
 													onClick={() => {
 														handleTodoActions(value[0], "removed");
 													}}
+													className='w-6 h-auto'
 												/>
 											</div>
-										)}
-									</div>
-								</>
+										</div>
+									)}
+								</div>
 							))}
 						</div>
 					</motion.article>
