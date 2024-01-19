@@ -24,7 +24,7 @@ function PanelDay(props) {
 						<div className=' w-full h-96'>
 							<div className='flex gap-3  mb-8 items-center justify-between bg-wange rounded-md px-2 py-1'>
 								<IoIosCloseCircleOutline
-									className='cursor-pointer w-7 h-auto text-beige'
+									className='cursor-pointer w-7 h-auto text-beige transform transition-transform  duration-300 hover:scale-125'
 									onClick={() => {
 										setShowPanelDay(!showPanelDay);
 									}}
@@ -48,19 +48,19 @@ function PanelDay(props) {
 													onClick={() => {
 														handleTodoActions(value[0], "discarded");
 													}}
-													className='w-6 h-auto'
+													className='w-6 h-auto transform transition-transform  duration-300 hover:scale-125 cursor-pointer'
 												/>
 												<AiOutlineCloseCircle
 													onClick={() => {
 														handleTodoActions(value[0], "removed");
 													}}
-													className='w-6 h-auto'
+													className='w-6 h-auto transform transition-transform  duration-300 hover:scale-125 cursor-pointer'
 												/>
 												<BsTrash
 													onClick={() => {
 														handleTodoActions(value[0], "eliminate");
 													}}
-													className='w-6 h-auto'
+													className='w-6 h-auto transform transition-transform  duration-300 hover:scale-125 cursor-pointer'
 												/>
 											</div>
 										</div>
@@ -71,19 +71,19 @@ function PanelDay(props) {
 													onClick={() => {
 														handleTodoActions(value[0], "eliminate");
 													}}
-													className='w-6 h-auto'
+													className='w-6 h-auto transform transition-transform  duration-300 hover:scale-125 cursor-pointer'
 												/>
 												<MdOutlineTaskAlt
 													onClick={() => {
 														handleTodoActions(value[0], "check");
 													}}
-													className='w-6 h-auto'
+													className='w-6 h-auto transform transition-transform  duration-300 hover:scale-125 cursor-pointer'
 												/>
 												<AiOutlineReload
 													onClick={() => {
 														handleTodoActions(value[0], "discarded");
 													}}
-													className='w-6 h-auto'
+													className='w-6 h-auto transform transition-transform  duration-300 hover:scale-125 cursor-pointer'
 												/>
 											</div>
 										</div>
@@ -94,13 +94,13 @@ function PanelDay(props) {
 													onClick={() => {
 														handleTodoActions(value[0], "check");
 													}}
-													className='w-6 h-auto'
+													className='w-6 h-auto transform transition-transform  duration-300 hover:scale-125 cursor-pointer'
 												/>
 												<AiOutlineCloseCircle
 													onClick={() => {
 														handleTodoActions(value[0], "removed");
 													}}
-													className='w-6 h-auto'
+													className='w-6 h-auto transform transition-transform  duration-300 hover:scale-125 cursor-pointer'
 												/>
 											</div>
 										</div>

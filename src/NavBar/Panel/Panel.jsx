@@ -29,12 +29,12 @@ function Panel() {
 						onClick={() => {
 							setSelectDayPanel(!selectDayPanel);
 						}}
-						className='select-none mr-1 cursor-pointer'>
+						className='select-none mr-1 cursor-pointer transform transition-transform  duration-300 hover:scale-110'>
 						{fechaFormateada}
 					</span>
 					{!selectDayPanel && (
 						<MdOutlineDateRange
-							className='select-none cursor-pointer'
+							className='select-none cursor-pointer transform transition-transform  duration-300 hover:scale-125'
 							onClick={() => {
 								setSelectDayPanel(!selectDayPanel);
 							}}
@@ -59,7 +59,7 @@ function Panel() {
 							onClick={() => {
 								setSelectDayPanel(!selectDayPanel);
 							}}
-							className='plus-icon w-7 h-auto  ml-3 md:mr-5 md:ml-0 cursor-pointer'
+							className='plus-icon w-7 h-auto  ml-3 md:mr-5 md:ml-0 cursor-pointer transform transition-transform  duration-300 hover:scale-125'
 						/>
 					</motion.div>
 				)}

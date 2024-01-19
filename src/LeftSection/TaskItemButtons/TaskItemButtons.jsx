@@ -23,19 +23,19 @@ function TaskItemButtons({
 						title='To completed'
 						className='button-completed'
 						onClick={handleClickCheck()}>
-						<MdOutlineTaskAlt className='w-6 h-auto cursor-pointer' />
+						<MdOutlineTaskAlt className='w-6 h-auto cursor-pointer transform transition-transform  duration-300 hover:scale-110' />
 					</span>
 					<span
 						title='Restart'
 						className='button-restart'
 						onClick={handleClickDiscarded()}>
-						<AiOutlineReload className='w-6 h-auto cursor-pointer' />
+						<AiOutlineReload className='w-6 h-auto cursor-pointer transform transition-transform  duration-300 hover:scale-110' />
 					</span>
 					<span
 						title='Eliminate'
 						className='button-eliminate'
 						onClick={handleClickEliminate()}>
-						<BsTrash className='w-6 h-auto cursor-pointer' />
+						<BsTrash className='w-6 h-auto cursor-pointer transform transition-transform  duration-300 hover:scale-110' />
 					</span>
 				</>
 			);
@@ -46,13 +46,13 @@ function TaskItemButtons({
 						title='Restart'
 						className='button-restart'
 						onClick={handleClickDiscarded()}>
-						<AiOutlineReload className='w-6 h-auto cursor-pointer' />
+						<AiOutlineReload className='w-6 h-auto cursor-pointer transform transition-transform  duration-300 hover:scale-110' />
 					</span>
 					<span
 						title='Discard'
 						className='button-discard'
 						onClick={handleClickRemoved()}>
-						<AiOutlineCloseCircle className='w-6 h-auto cursor-pointer' />
+						<AiOutlineCloseCircle className='w-6 h-auto cursor-pointer transform transition-transform  duration-300 hover:scale-110' />
 					</span>
 				</>
 			);
@@ -63,13 +63,13 @@ function TaskItemButtons({
 						title='To completed'
 						className='button-completed'
 						onClick={handleClickCheck()}>
-						<MdOutlineTaskAlt className='w-6 h-auto cursor-pointer' />
+						<MdOutlineTaskAlt className='w-6 h-auto cursor-pointer transform transition-transform  duration-300 hover:scale-110' />
 					</span>
 					<span
 						title='Discard'
 						className='button-discard'
 						onClick={handleClickRemoved()}>
-						<AiOutlineCloseCircle className='w-6 h-auto cursor-pointer' />
+						<AiOutlineCloseCircle className='w-6 h-auto cursor-pointer transform transition-transform  duration-300 hover:scale-110' />
 					</span>
 				</>
 			);

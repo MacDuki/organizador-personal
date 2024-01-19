@@ -26,7 +26,7 @@ function Panel2() {
 				<div className='flex flex-row items-center text-2xl justify-center'>
 					<span>
 						<BsArrowLeftCircle
-							className='arrow-icons cursor-pointer w-7 md:w-5 h-auto'
+							className='arrow-icons cursor-pointer w-7 md:w-5 h-auto transform transition-transform  duration-300 hover:scale-125'
 							onClick={() => sectionSetFunction.left()}
 						/>
 					</span>
@@ -41,7 +41,7 @@ function Panel2() {
 					</motion.h2>
 					<span>
 						<BsArrowRightCircle
-							className='arrow-icons cursor-pointer w-7 md:w-5 h-auto'
+							className='arrow-icons cursor-pointer w-7 md:w-5 h-auto transform transition-transform  duration-300 hover:scale-125'
 							onClick={() => sectionSetFunction.right()}
 						/>
 					</span>
@@ -52,7 +52,7 @@ function Panel2() {
 						onClick={() => {
 							handlePanelVisibility();
 						}}
-						className='plus-icon cursor-pointer w-6 h-auto'
+						className='plus-icon cursor-pointer w-6 h-auto transform transition-transform  duration-300 hover:scale-125'
 					/>
 				</div>
 			</div>

@@ -89,7 +89,7 @@ function CreateTaskPanel() {
 							onClick={() => {
 								handlePanelVisibility();
 							}}
-							className='w-6 h-auto cursor-pointer'
+							className='w-6 h-auto cursor-pointer transform transition-transform  duration-300 hover:scale-125'
 						/>
 					</div>
 				</div>
