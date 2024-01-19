@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import React from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { generalContext } from "../../functions/GeneralContext";
+import "./button.css";
 import "./input.css";
 
 function CreateTaskPanel() {
@@ -77,10 +78,24 @@ function CreateTaskPanel() {
 				</div>
 				<div className='flex gap-10 '>
 					{newTodoText.length >= 1 && (
-						<button
-							type='submit'
-							className=' w-22 px-4 py-1 h-auto border-2 border-black select-none rounded-md'>
-							Add
+						<button className='button' type='submit'>
+							<span className='button__text'>Add task</span>
+							<span className='button__icon'>
+								<svg
+									className='svg'
+									fill='none'
+									height='24'
+									stroke='currentColor'
+									stroke-linecap='round'
+									stroke-linejoin='round'
+									stroke-width='2'
+									viewBox='0 0 24 24'
+									width='24'
+									xmlns='http://www.w3.org/2000/svg'>
+									<line x1='12' x2='12' y1='5' y2='19'></line>
+									<line x1='5' x2='19' y1='12' y2='12'></line>
+								</svg>
+							</span>
 						</button>
 					)}
 

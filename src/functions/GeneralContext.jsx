@@ -167,7 +167,6 @@ function GeneralContext({ children }) {
 		};
 
 		if (newTodoText.trim().length === 0) {
-			alert("Alerta de repetido");
 		} else if (
 			!updatedTodos.some(
 				(todo) =>
@@ -179,7 +178,7 @@ function GeneralContext({ children }) {
 			setNewTodoText("");
 		} else {
 			setNewTodoText("");
-			alert("Nada de repetidos perrita");
+			setShowAdvice(true);
 		}
 	};
 
@@ -246,8 +245,12 @@ function GeneralContext({ children }) {
 							<div className='spoke'></div>
 						</div>
 					)}
-					{error ? <p>Hay un error fatal</p> : null}
-					{!loading && todos.length < 1 ? <p>Crea tu primer Todo</p> : null}
+					{error && <img src='./error.gif' />}
+					{!loading && todos.length < 1 && (
+						<div className='object-contain p-10'>
+							<img src='src\functions\firstTasks.svg' className='w-50 h-auto' />
+						</div>
+					)}
 					{!loading && todos.length >= 1 && searchValue.length <= 0
 						? sectionComponents[section]() /*Linea 214*/
 						: !loading && todos.length >= 1 && searchValue.length >= 1
@@ -277,6 +280,7 @@ function GeneralContext({ children }) {
 	const [dayPanelSelected, setDayPanelSelected] = React.useState();
 
 	const [showPanelDay, setShowPanelDay] = React.useState(false);
+	const [showAdvice, setShowAdvice] = React.useState(false);
 
 	return (
 		<generalContext.Provider
@@ -319,6 +323,8 @@ function GeneralContext({ children }) {
 				setSearchValue,
 				searchToday,
 				setSearchToday,
+				showAdvice,
+				setShowAdvice,
 			}}>
 			{children}
 		</generalContext.Provider>

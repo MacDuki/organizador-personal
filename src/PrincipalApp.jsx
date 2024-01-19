@@ -1,3 +1,4 @@
+import React from "react";
 import { LeftApp } from "./LeftSection/App/LeftApp.jsx";
 import { NavBar } from "./NavBar/App/NavBar.jsx";
 import { RightApp } from "./RightSection/App/RightApp";
@@ -8,6 +9,7 @@ function PrincipalApp() {
 		<main className='w-full min-h-screen flex flex-col justify-center  bg-beige  '>
 			<GeneralContext>
 				<NavBar />
+
 				<section className='flex flex-col md:flex-row h-auto justify-center items-center mt-36 md:mt-0 md:items-start gap-20 px-5 py-2'>
 					<LeftApp />
 					<RightApp />
